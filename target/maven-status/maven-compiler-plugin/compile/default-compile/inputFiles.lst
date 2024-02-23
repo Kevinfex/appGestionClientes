@@ -1,0 +1,67 @@
+<<<<<<< HEAD
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\RolUsuario.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\ClienteDTO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\UsuarioDTO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plEmpleados.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Usuario.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Cliente.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\UsuarioDAO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\RolUsuarioDAO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameVendedor.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plCliente.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\EmpleadoDTO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Utilities\Controles.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameLogin.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\ClienteDAO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataSource\Conexion.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\ShadowRenderer.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plProductos.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plVenta.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\ShadowType.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plPerfil.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\ICrud.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\panelFormularioUsuario.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plBoleta.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\RolUsuarioDTO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\main\appgestionclientes\AppGestionClientes.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameAdministrador.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\panelFormularioEmpleado.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Utilities\DisabledItemRenderer.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\PanelShadow.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\GraphicsUtilities.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plUsuarios.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\EmpleadoDAO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\ProductoDTO.java
+C:\Users\KEVIN EP\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Empleado.java
+=======
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\ProductoDTO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Utilities\DisabledItemRenderer.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plUsuarios.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\main\appgestionclientes\AppGestionClientes.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\RolUsuario.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Empleado.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\ClienteDTO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\PanelShadow.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\panelFormularioUsuario.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\ICrud.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\RolUsuarioDTO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plCliente.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Utilities\Controles.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\RolUsuarioDAO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\UsuarioDAO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameAdministrador.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\ClienteDAO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\panelFormularioEmpleado.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Cliente.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plBoleta.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plEmpleados.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plVenta.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\UsuarioDTO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Usuario.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\EmpleadoDAO.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameVendedor.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\DataSource\Conexion.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameLogin.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plProductos.java
+C:\Users\Bryam\Documents\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\EmpleadoDTO.java
+>>>>>>> c2a8b1b017c2d9f4fa9c8a8390d3bd2702aa16d0
