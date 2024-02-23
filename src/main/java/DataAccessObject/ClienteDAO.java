@@ -166,4 +166,62 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         }
         return lista;
     }
+    
+    public boolean buscarRazonSocial(String razonsocial) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //boolean encontrado = false;
+        
+        try {
+            ps = conexion.conectar().prepareStatement("select count(*) from cliente where razonsocial=?");
+            ps.setString(1, razonsocial);
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                int cantidad = rs.getInt(1); // Obtener el valor de la primera columna (COUNT)
+                if (cantidad == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+           
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+        finally {
+            conexion.desconectar();
+        }
+        return false;
+    }
+    
+    public boolean buscarNombreComercial(ClienteDTO dtocliente) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //boolean encontrado = false;
+        
+        try {
+            ps = conexion.conectar().prepareStatement("select count(*) from cliente where nombrecomercial=?");
+            ps.setString(1, dtocliente.getNombrecomercial());
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                int cantidad = rs.getInt(1); // Obtener el valor de la primera columna (COUNT)
+                if (cantidad == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+           
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+        finally {
+            conexion.desconectar();
+        }
+        return false;
+    }
 }

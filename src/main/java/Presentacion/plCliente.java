@@ -113,7 +113,7 @@ public class plCliente extends javax.swing.JPanel {
         modelo.getDataVector().removeAllElements();
         tbClientes.removeAll();
     }
-    
+
     private void cancelar() {
         txtCodigo.setText("");
         txtRUC.setText("");
@@ -354,6 +354,11 @@ public class plCliente extends javax.swing.JPanel {
         btnEliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminarCliente.setName("btnEliminar"); // NOI18N
         btnEliminarCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botones/btnELiminarUsuarioHover.png"))); // NOI18N
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
 
         btnCancelarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnCancelarHover.png"))); // NOI18N
         btnCancelarCliente.setContentAreaFilled(false);
@@ -559,8 +564,8 @@ public class plCliente extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
@@ -572,27 +577,25 @@ public class plCliente extends javax.swing.JPanel {
             Toolkit.getDefaultToolkit().beep();
         }
         txtBuscarKeyPressed(evt);
-        
-        
+
         //if (txtBuscar.getText().length() >= 1) {
-          //  evt.consume();
-            //Toolkit.getDefaultToolkit().beep();
-            //JOptionPane.showMessageDialog(null, txtBuscar.getText().length());
-            //if ((!txtBuscar.getText().startsWith("1")) && (!txtBuscar.getText().startsWith("2"))) {
-              //  JOptionPane.showMessageDialog(null, "N° RUC no válido", "ERROR", JOptionPane.ERROR_MESSAGE);
-            //}
+        //  evt.consume();
+        //Toolkit.getDefaultToolkit().beep();
+        //JOptionPane.showMessageDialog(null, txtBuscar.getText().length());
+        //if ((!txtBuscar.getText().startsWith("1")) && (!txtBuscar.getText().startsWith("2"))) {
+        //  JOptionPane.showMessageDialog(null, "N° RUC no válido", "ERROR", JOptionPane.ERROR_MESSAGE);
         //}
-        
+        //}
         if (txtBuscar.getText().length() >= 11) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
-            
+
             if ((!txtBuscar.getText().startsWith("1")) && (!txtBuscar.getText().startsWith("2"))) {
                 JOptionPane.showMessageDialog(null, "N° RUC no válido", "ERROR", JOptionPane.ERROR_MESSAGE);
                 //JOptionPane.showMessageDialog(null, txtBuscar.getText().length()+1);
             }
         }
-        
+
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void txtRUCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRUCKeyTyped
@@ -642,7 +645,7 @@ public class plCliente extends javax.swing.JPanel {
 
     private void txtDireccionFiscalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionFiscalKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtDireccionFiscalKeyTyped
 
     private void txtDistritoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDistritoKeyTyped
@@ -673,7 +676,7 @@ public class plCliente extends javax.swing.JPanel {
 
     private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
         // TODO add your handling code here:
-        
+
 
     }//GEN-LAST:event_btnNuevo1ActionPerformed
 
@@ -737,7 +740,7 @@ public class plCliente extends javax.swing.JPanel {
             mensaje = cliente.eliminar(codcliente);
             JOptionPane.showMessageDialog(null, mensaje);
         }
-        
+
         limpiarTabla();
         listar();
         //btnNuevoActionPerformed(evt);
@@ -745,7 +748,7 @@ public class plCliente extends javax.swing.JPanel {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
@@ -756,8 +759,8 @@ public class plCliente extends javax.swing.JPanel {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }*/
-        
-        /*if (txtBuscar.getText().length()+1 >= 11) {
+
+ /*if (txtBuscar.getText().length()+1 >= 11) {
                         
             if ((!txtBuscar.getText().startsWith("1")) && (!txtBuscar.getText().startsWith("2"))) {
                 JOptionPane.showMessageDialog(null, "N° RUC no válido", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -799,6 +802,7 @@ public class plCliente extends javax.swing.JPanel {
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         // TODO add your handling code here:
+        String mensaje;
         String ruc = txtRUC.getText().trim();
         String razonsocial = txtRazonSocial.getText();
         String nombrecomercial = txtNombreComercial.getText();
@@ -815,22 +819,32 @@ public class plCliente extends javax.swing.JPanel {
             //celularcliente = celular;
             //clienteDTO = cliente.buscar(ruccliente);
             //if (clienteDTO != null) {
-                String mensaje = cliente.agregar(txtCodigo.getText(), txtRUC.getText(), txtRazonSocial.getText(), txtNombreComercial.getText(),
-                        txtDireccionFiscal.getText(), txtCelular.getText(), txtDistrito.getText(), txtProvincia.getText());
-                JOptionPane.showMessageDialog(null, mensaje);
-                if (mensaje.equals("Registro Guardado")) {
-                    limpiarTabla();
-                    listar();
-                    limpiarCajas();
-                    desbloquearBotones();
-                    bloquearCajas();
+            if (!cliente.buscarRazonSocial(razonsocial)) {
+                if (!cliente.buscarNombreComercial(nombrecomercial)) {
+                    mensaje = cliente.agregar(txtCodigo.getText(), txtRUC.getText(), txtRazonSocial.getText(), txtNombreComercial.getText(),
+                            txtDireccionFiscal.getText(), txtCelular.getText(), txtDistrito.getText(), txtProvincia.getText());
+                    JOptionPane.showMessageDialog(null, mensaje);
+                    if (mensaje.equals("Registro Guardado")) {
+                        limpiarTabla();
+                        listar();
+                        limpiarCajas();
+                        desbloquearBotones();
+                        bloquearCajas();
+                    }
+                } else {
+                    mensaje = "Registro " + nombrecomercial + " ya existe";
+                    JOptionPane.showMessageDialog(null, mensaje, "ERROR!", JOptionPane.ERROR_MESSAGE);
                 }
-                
+
+            } else {
+                mensaje = "Registro " + razonsocial + " ya existe";
+                JOptionPane.showMessageDialog(null, mensaje, "ERROR!", JOptionPane.ERROR_MESSAGE);
+            }
+
             //}
             //else {
             //    JOptionPane.showMessageDialog(null, "Este registro ya existe");
             //}
-            
         } else {
             JOptionPane.showMessageDialog(null, "Debes completar todos los campos", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -839,46 +853,59 @@ public class plCliente extends javax.swing.JPanel {
     private void btnEditarrClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarrClienteActionPerformed
         // TODO add your handling code here:
         String mensaje = "";
-        
+
         int fila = tbClientes.getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una fila", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-        else {
+        } else {
             estado += 1;
             if (estado == 1) {
-                    desbloquearCajas();
-                    //btnActualizar.setText("ACTUALIZAR");
-                    btnNuevoCliente.setEnabled(false);
-                    btnGuardarCliente.setEnabled(false);
-                    btnEliminarCliente.setEnabled(false);
-            }
-            else if (estado == 2) {
-                    String ruc = txtRUC.getText();
-                    String apellido = txtRazonSocial.getText();
-                    String nombre = txtNombreComercial.getText();
-                    String celular = txtDireccionFiscal.getText();
-                    String direccion = txtCelular.getText();
-                    String distrito = txtDistrito.getText();
-                    String provincia = txtProvincia.getText();
-                    if (!(ruc.isEmpty() || apellido.isEmpty() || nombre.isEmpty() || celular.isEmpty() || direccion.isEmpty() || distrito.isEmpty() || provincia.isEmpty())) {
-                        mensaje = cliente.actualizar(codcliente, txtRUC.getText(), txtRazonSocial.getText(), txtNombreComercial.getText(), txtDireccionFiscal.getText(),
-                                txtCelular.getText(), txtDistrito.getText(), txtProvincia.getText());
-                        JOptionPane.showMessageDialog(null, mensaje);
-                        //btnActualizar.setText("EDITAR");
+                desbloquearCajas();
+                //btnActualizar.setText("ACTUALIZAR");
+                btnNuevoCliente.setEnabled(false);
+                btnGuardarCliente.setEnabled(false);
+                btnEliminarCliente.setEnabled(false);
+            } else if (estado == 2) {
+                String ruc = txtRUC.getText();
+                String apellido = txtRazonSocial.getText();
+                String nombre = txtNombreComercial.getText();
+                String celular = txtDireccionFiscal.getText();
+                String direccion = txtCelular.getText();
+                String distrito = txtDistrito.getText();
+                String provincia = txtProvincia.getText();
+                if (!(ruc.isEmpty() || apellido.isEmpty() || nombre.isEmpty() || celular.isEmpty() || direccion.isEmpty() || distrito.isEmpty() || provincia.isEmpty())) {
+                    mensaje = cliente.actualizar(codcliente, txtRUC.getText(), txtRazonSocial.getText(), txtNombreComercial.getText(), txtDireccionFiscal.getText(),
+                            txtCelular.getText(), txtDistrito.getText(), txtProvincia.getText());
+                    JOptionPane.showMessageDialog(null, mensaje);
+                    //btnActualizar.setText("EDITAR");
 
-                        limpiarTabla();
-                        listar();
-                        desbloquearBotones();
-                        bloquearCajas();
-                        //estado = 1
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Debes completar todos los datos", "ERROR", JOptionPane.ERROR_MESSAGE);
-                    }
-                    estado = 0;
-            } 
+                    limpiarTabla();
+                    listar();
+                    desbloquearBotones();
+                    bloquearCajas();
+                    //estado = 1
+                } else {
+                    JOptionPane.showMessageDialog(null, "Debes completar todos los datos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+                estado = 0;
+            }
         }
     }//GEN-LAST:event_btnEditarrClienteActionPerformed
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        // TODO add your handling code here:
+        String mensaje = "";
+        int fila = tbClientes.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una fila");
+        } else {
+            mensaje = cliente.eliminar(codcliente);
+            JOptionPane.showMessageDialog(null, mensaje);
+        }
+
+        limpiarTabla();
+        listar();
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -39,18 +39,13 @@ Presentacion\plVenta$2.class
 Presentacion\plPerfil$1.class
 DataAccessObject\EmpleadoDAO.class
 Presentacion\frameAdministrador$5.class
-<<<<<<< HEAD
+Presentacion\plCliente$16.class
 Presentacion\frameAdministrador$8.class
 Presentacion\frameLogin.class
 Presentacion\frameVendedor$1.class
 Presentacion\plPerfil$2.class
 Presentacion\plPerfil$3.class
-=======
-Presentacion\plCliente$16.class
-Presentacion\frameLogin.class
-Presentacion\frameVendedor$1.class
 Presentacion\plCliente$17.class
->>>>>>> c2a8b1b017c2d9f4fa9c8a8390d3bd2702aa16d0
 Presentacion\plProductos$1.class
 Presentacion\plVenta$1.class
 Presentacion\frameAdministrador$7.class

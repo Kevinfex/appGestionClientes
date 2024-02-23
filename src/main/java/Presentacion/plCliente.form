@@ -488,6 +488,9 @@
                       <Image iconType="3" name="/imagenes/botones/btnELiminarUsuarioHover.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarClienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCancelarCliente">
                   <Properties>

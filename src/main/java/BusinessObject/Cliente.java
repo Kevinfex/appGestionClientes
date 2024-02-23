@@ -24,6 +24,31 @@ public class Cliente {
         clienteDAO = new ClienteDAO();
     }
     
+    public boolean buscarRazonSocial(String razonsocial) {
+        
+        boolean resultado = clienteDAO.buscarRazonSocial(razonsocial);
+        if (resultado)
+            return true;
+        else
+            return false;
+            //mensaje = "Registro " + razonsocial + " ya existe";
+        
+        //return mensaje;
+    }
+    
+    public boolean buscarNombreComercial(String nombrecomercial) {
+        clienteDTO = new ClienteDTO();
+        clienteDTO.setNombrecomercial(nombrecomercial);
+        boolean resultado = clienteDAO.buscarNombreComercial(clienteDTO);
+        if (resultado)
+            return true;
+        else
+            return false;
+            //mensaje = "Registro " + razonsocial + " ya existe";
+        
+        //return mensaje;
+    }
+    
     public String agregar(String codcliente, String ruc, String razonsocial, String nombrecomercial, String direccion, String celular, String distrito, String provincia){
         String mensaje="";
         
@@ -49,20 +74,26 @@ public class Cliente {
         return mensaje;
         */
         
-        String[] dato = new String[6];
+        /*String[] dato = new String[6];
         dato[0] = codcliente;
         dato[1] = ruc;
         dato[2] = razonsocial;
         dato[3] = nombrecomercial;
         dato[4] = direccion;
-        dato[5] = celular;
+        dato[5] = celular;*/
         
-        for (int i=0; i<=dato.length-1; i++) {
+        /*clienteDTO = this.buscar(ruc);
+        if (clienteDTO != null)
+            mensaje = "Registro " + ruc + " ya existe";
+        
+        return mensaje;
+        */
+        /*for (int i=0; i<=dato.length-1; i++) {
             clienteDTO = this.buscar(dato[i]);
             if (clienteDTO != null)
                 mensaje = "Registro " + dato[i] + " ya existe";
             
-        }
+        }*/
         /*clienteDTO = this.buscar(dato[5]);
         if (clienteDTO == null)
             
@@ -73,12 +104,18 @@ public class Cliente {
         
         else            
             mensaje = "Registro " + dato[5] + " ya existe";*/
-            
-        return mensaje;
+           
+        
+        //return mensaje;
         
         //else 
             //mensaje = "Registro no guardado";
         //return mensaje;
+        clienteDTO = new ClienteDTO(codcliente, ruc, razonsocial, nombrecomercial, direccion, celular, distrito, provincia);
+            if (clienteDAO.agregar(clienteDTO)) {
+                mensaje = "Registro Guardado";
+            }
+       return mensaje;
     }
     
     public String actualizar(String codcliente, String ruc, String razonsocial, String nombrecomercial, String direccion, String celular, String distrito, String provincia){
