@@ -1,36 +1,41 @@
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\RolUsuarioDAO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameVendedor.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\ClienteDTO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Usuario.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\UsuarioDTO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plEmpleados.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\GraphicsUtilities.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\productoDTO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Cliente.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\panelFormularioUsuario.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameAdministrador.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\frameLogin.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plUsuarios.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\productoDAO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\PanelShadow.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plBoleta.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plVenta.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\panelFormularioEmpleado.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plCliente.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\UsuarioDAO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\Empleado.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Utilities\DisabledItemRenderer.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\ShadowRenderer.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\ClienteDAO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\ICrud.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\main\appgestionclientes\AppGestionClientes.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\RolUsuarioDTO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\producto.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plProductos.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Swing\Containers\ShadowType.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Presentacion\plPerfil.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\DataAccessObject\EmpleadoDAO.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\DataSource\Conexion.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\Utilities\Controles.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\BusinessObject\RolUsuario.java
-C:\Users\EDGAR\OneDrive\Documentos\NetBeansProjects\appGestionClientes\src\main\java\TransferObject\EmpleadoDTO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\main\appgestionclientes\AppGestionClientes.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\TransferObject\productoDTO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataAccessObject\ClienteDAO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plVenta1.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\frameVendedor.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\TransferObject\EmpleadoDTO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataAccessObject\UsuarioDAO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\TransferObject\UsuarioDTO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\frameLogin.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Swing\Containers\ShadowType.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Utilities\DisabledItemRenderer.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plUsuarios.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\TransferObject\ClienteDTO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plProductos.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plPerfil.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plBoleta.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataAccessObject\ICrud.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Swing\Containers\PanelShadow.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plVenta.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Swing\Containers\GraphicsUtilities.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataAccessObject\productoDAO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\frameAdministrador.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\TransferObject\RolUsuarioDTO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plEmpleados.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\BusinessObject\Cliente.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plCategoria.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\panelFormularioEmpleado.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\BusinessObject\producto.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataAccessObject\RolUsuarioDAO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataAccessObject\CategoriaDAO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\BusinessObject\Empleado.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Swing\Containers\ShadowRenderer.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\TransferObject\CategoriaDTO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\BusinessObject\Categoria.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\BusinessObject\Usuario.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\panelFormularioUsuario.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataAccessObject\EmpleadoDAO.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Utilities\Controles.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\BusinessObject\RolUsuario.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\DataSource\Conexion.java
+C:\Users\KEVIN EP\Desktop\UTP\CICLO VERANO - 2024\ALGORITMOS Y ESTRUCTURAS DE DATOS- Sección 3272\appGestionClientes\src\main\java\Presentacion\plCliente.java

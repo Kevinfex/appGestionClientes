@@ -33,6 +33,10 @@ public class frameAdministrador extends javax.swing.JFrame {
         initComponents();
         inicarFrameAdministrador();
     }
+
+    frameAdministrador() {
+        initComponents();
+    }
     
     public void inicarFrameAdministrador() {
         this.setLocationRelativeTo(null);
@@ -277,7 +281,7 @@ public class frameAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        plProductos jpProductos = new plProductos();
+        plProductos jpProductos = new plProductos(frameAdministrador.this);
         mostrarPanel(jpProductos);
         seleccionarBoton(false, false, true, false, false, false, false);
     }//GEN-LAST:event_btnProductosActionPerformed
@@ -306,7 +310,7 @@ public class frameAdministrador extends javax.swing.JFrame {
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         // TODO add your handling code here:
-        plVenta plventa = new plVenta();
+        plVenta plventa = new plVenta(dtoEmpleado, dtoUsuario, dtoRolUsuario, frameAdministrador.this);
         mostrarPanel(plventa);
         seleccionarBoton(false, false, false, false, true, false, false);
     }//GEN-LAST:event_btnVentasActionPerformed
@@ -371,7 +375,7 @@ public class frameAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jpContenedor;
+    public javax.swing.JPanel jpContenedor;
     public javax.swing.JLabel nombresEmpleado;
     public javax.swing.JLabel rolUsuario;
     // End of variables declaration//GEN-END:variables

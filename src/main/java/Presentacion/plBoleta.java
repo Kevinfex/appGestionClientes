@@ -6,12 +6,20 @@ package Presentacion;
 
 import BusinessObject.Cliente;
 import TransferObject.ClienteDTO;
+import TransferObject.EmpleadoDTO;
+import TransferObject.RolUsuarioDTO;
+import TransferObject.UsuarioDTO;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Bryam
  */
 public class plBoleta extends javax.swing.JPanel {
+    private EmpleadoDTO dtoEmpleado;
+    private UsuarioDTO dtoUsuario;
+    private RolUsuarioDTO dtoRolUsuario;
+    private JFrame jFrame;
     String rucCliente;
     ClienteDTO clienteDTO;
     Cliente cliente;
@@ -19,8 +27,16 @@ public class plBoleta extends javax.swing.JPanel {
     String nombreCliente;
     /**
      * Creates new form plBoleta
+     * @param dtoEmpleado
+     * @param dtoUsuario
+     * @param dtoRolUsuario
+     * @param jFrame
      */
-    public plBoleta() {
+    public plBoleta(EmpleadoDTO dtoEmpleado, UsuarioDTO dtoUsuario, RolUsuarioDTO dtoRolUsuario, JFrame jFrame) {
+        this.dtoEmpleado = dtoEmpleado;
+        this.dtoUsuario = dtoUsuario;
+        this.dtoRolUsuario = dtoRolUsuario;
+        this.jFrame = jFrame;
         initComponents();
         lblFechaBoleta.setText(plVenta.lblFechaVisita.getText());
         bloquearCajas();
@@ -305,7 +321,8 @@ public class plBoleta extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        plProductos panelProduct = new plProductos();
+        plProductos panelProduct = new plProductos(jFrame);
+        panelProduct.btnGestionarCategoria.setVisible(false);
         panelProduct.isVisible();
     }//GEN-LAST:event_jButton1ActionPerformed
 

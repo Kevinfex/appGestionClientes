@@ -6,11 +6,15 @@ package Presentacion;
 
 import BusinessObject.Cliente;
 import TransferObject.ClienteDTO;
+import TransferObject.EmpleadoDTO;
+import TransferObject.RolUsuarioDTO;
+import TransferObject.UsuarioDTO;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,13 +22,27 @@ import javax.swing.JOptionPane;
  * @author Bryam
  */
 public class plVenta extends javax.swing.JPanel {
+   private EmpleadoDTO dtoEmpleado;
+    private UsuarioDTO dtoUsuario;
+    private RolUsuarioDTO dtoRolUsuario;
+    private JFrame jFrame;
+    
     ClienteDTO clienteDTO;
     Cliente cliente;
     String ruccliente;
     /**
      * Creates new form plVenta
+     * @param dtoEmpleado
+     * @param dtoUsuario
+     * @param dtoRolUsuario
+     * @param jFrame
      */
-    public plVenta() {
+    public plVenta(EmpleadoDTO dtoEmpleado, UsuarioDTO dtoUsuario, RolUsuarioDTO dtoRolUsuario, JFrame jFrame) {
+        this.dtoEmpleado = dtoEmpleado;
+        this.dtoUsuario = dtoUsuario;
+        this.dtoRolUsuario = dtoRolUsuario;
+        this.jFrame = jFrame;
+        initComponents();
         initComponents();
         fechaActual();
         txtClienteVisita.setEnabled(true);
@@ -259,7 +277,7 @@ public class plVenta extends javax.swing.JPanel {
         if (chkbVenta.isSelected()) {
             if (!txtClienteVisita.getText().isEmpty()) {
                 txtClienteVisita.setEnabled(false);
-                plBoleta pBoleta = new plBoleta();
+                plBoleta pBoleta = new plBoleta(dtoEmpleado, dtoUsuario, dtoRolUsuario, jFrame);
                 pBoleta.setSize(600, 579);
                 pBoleta.setLocation(0, 0);
 

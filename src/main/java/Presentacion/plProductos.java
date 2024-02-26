@@ -6,30 +6,42 @@ package Presentacion;
 
 import BusinessObject.producto;
 import TransferObject.productoDTO;
+import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
  * @author Edgar
  */
 public class plProductos extends javax.swing.JPanel {
-    
-     DefaultTableModel modelo;
-     productoDTO productoDTO;
-     producto producto;
-     String nombre;
-     String codproducto;
-     Integer estado = 0;
 
+    private frameAdministrador jFrameAdmin;
+    private frameVendedor jFrameVededor;
+    DefaultTableModel modelo;
+    productoDTO productoDTO;
+    producto producto;
+    String nombre;
+    String codproducto;
+    Integer estado = 0;
 
     /**
      * Creates new form panelProductos
+     * @param jFrame
      */
-    public plProductos() {
+    public plProductos(JFrame jFrame) {
+        jFrameAdmin = new frameAdministrador();
+        jFrameVededor = new frameVendedor();
+        if (jFrame.getClass()== jFrameAdmin.getClass()) {
+            this.jFrameAdmin = (frameAdministrador) jFrame;
+        }else {
+            this.jFrameVededor = (frameVendedor) jFrame;
+        }
+        
+        
         initComponents();
         modelo = new DefaultTableModel();
         productoDTO = new productoDTO();
@@ -37,44 +49,62 @@ public class plProductos extends javax.swing.JPanel {
         limpiarTabla();
         listar();
         bloquearCajas();
-        desbloquearBotones();    
+        desbloquearBotones();
     }
-       private void limpiarCajas(){
-       txtCodProducto.setText("");
-       txtNombreProducto.setText("");
-       txtDescripcionProd.setText("");
-       cboPresentacion.setSelectedItem("");
-       txtprecio.setText("");
-       txtstock.setText("");     
-       txtCodProducto.requestFocus();
+
+//    public plProductos() {
+//        initComponents();
+//        modelo = new DefaultTableModel();
+//        productoDTO = new productoDTO();
+//        producto = new producto();
+//        limpiarTabla();
+//        listar();
+//        bloquearCajas();
+//        desbloquearBotones();
+//        btnGestionarCategoria.setVisible(false);
+//    }
+
+    private void limpiarCajas() {
+        txtCodProducto.setText("");
+        txtNombreProducto.setText("");
+        txtDescripcionProd.setText("");
+        cboPresentacion.setSelectedItem("");
+        txtprecio.setText("");
+        txtstock.setText("");
+        txtCodProducto.requestFocus();
     }
+
     private void bloquearCajas() {
-        txtCodProducto.setEnabled(false);     
+        txtCodProducto.setEnabled(false);
         txtNombreProducto.setEnabled(false);
         txtDescripcionProd.setEnabled(false);
         txtprecio.setEnabled(false);
         txtstock.setEnabled(false);
         cboPresentacion.setEnabled(false);
     }
-    private void desbloquearCajas() {   
+
+    private void desbloquearCajas() {
         txtNombreProducto.setEnabled(true);
         txtDescripcionProd.setEnabled(true);
         txtprecio.setEnabled(true);
         txtstock.setEnabled(true);
         cboPresentacion.setEnabled(true);
     }
+
     private void desbloquearBotones() {
         btnNuevo.setEnabled(true);
         btnGuardar.setEnabled(false);
         btnActualizar.setEnabled(true);
         btnEliminar.setEnabled(true);
     }
+
     private void bloquearBotones() {
         btnNuevo.setEnabled(false);
         btnGuardar.setEnabled(true);
         btnActualizar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }
+
     private void listar() {
         try {
             modelo = (DefaultTableModel) tbproducto.getModel();
@@ -89,17 +119,16 @@ public class plProductos extends javax.swing.JPanel {
                 modelo.addRow(ob);
             }
             tbproducto.setModel(modelo);
-        }
-        catch (Exception ex) {
-        
+        } catch (Exception ex) {
+
         }
     }
+
     private void limpiarTabla() {
         modelo = (DefaultTableModel) tbproducto.getModel();
         modelo.getDataVector().removeAllElements();
         tbproducto.removeAll();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -135,6 +164,7 @@ public class plProductos extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         txtbuscar = new javax.swing.JTextField();
+        btnGestionarCategoria = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbproducto = new javax.swing.JTable();
 
@@ -358,6 +388,16 @@ public class plProductos extends javax.swing.JPanel {
             }
         });
 
+        btnGestionarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botones/btnGestionarCategoria.png"))); // NOI18N
+        btnGestionarCategoria.setContentAreaFilled(false);
+        btnGestionarCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGestionarCategoria.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botones/btnGestionarCategoriaHover.png"))); // NOI18N
+        btnGestionarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarCategoriaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -367,16 +407,21 @@ public class plProductos extends javax.swing.JPanel {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGestionarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(btnGestionarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         tbproducto.setModel(new javax.swing.table.DefaultTableModel(
@@ -434,28 +479,28 @@ public class plProductos extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
         limpiarTabla();
         listar();
         desbloquearCajas();
         bloquearBotones();
-        limpiarCajas();    
+        limpiarCajas();
     }//GEN-LAST:event_btnNuevoActionPerformed
-    
-  
+
+
     private void txtNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreProductoActionPerformed
-         
+
     }//GEN-LAST:event_txtNombreProductoActionPerformed
-     
+
     private void txtstockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstockActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtstockActionPerformed
 
     private void txtprecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecioActionPerformed
         // TODO add your handling code here:
-           
+
     }//GEN-LAST:event_txtprecioActionPerformed
 
     private void txtCodProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProductoActionPerformed
@@ -463,83 +508,81 @@ public class plProductos extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCodProductoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       
-    String nombre = txtNombreProducto.getText();
-    String descripcion = txtDescripcionProd.getText();
-    String presentacion= (String) cboPresentacion.getSelectedItem();
-    String precioStr = txtprecio.getText();
-    String stockStr = txtstock.getText();
 
-    if (!nombre.isEmpty() && !descripcion.isEmpty() && !precioStr.isEmpty() && !stockStr.isEmpty()) {
-        try {
-            float precio = Float.parseFloat(precioStr);
-            int stock = Integer.parseInt(stockStr);
-            String mensaje = producto.agregar(txtCodProducto.getText(), txtNombreProducto.getText(), txtDescripcionProd.getText(),cboPresentacion.getSelectedItem().toString(), precio,stock);
-            JOptionPane.showMessageDialog(null, mensaje);
-            limpiarTabla();
-            listar();
-            limpiarCajas();
-            desbloquearBotones();
-            bloquearCajas();
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El precio o el stock no son válidos", "ERROR", JOptionPane.ERROR_MESSAGE);
+        String nombre = txtNombreProducto.getText();
+        String descripcion = txtDescripcionProd.getText();
+        String presentacion = (String) cboPresentacion.getSelectedItem();
+        String precioStr = txtprecio.getText();
+        String stockStr = txtstock.getText();
+
+        if (!nombre.isEmpty() && !descripcion.isEmpty() && !precioStr.isEmpty() && !stockStr.isEmpty()) {
+            try {
+                float precio = Float.parseFloat(precioStr);
+                int stock = Integer.parseInt(stockStr);
+                String mensaje = producto.agregar(txtCodProducto.getText(), txtNombreProducto.getText(), txtDescripcionProd.getText(), cboPresentacion.getSelectedItem().toString(), precio, stock);
+                JOptionPane.showMessageDialog(null, mensaje);
+                limpiarTabla();
+                listar();
+                limpiarCajas();
+                desbloquearBotones();
+                bloquearCajas();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "El precio o el stock no son válidos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes completar todos los campos", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-    } else {
-        JOptionPane.showMessageDialog(null, "Debes completar todos los campos", "ERROR", JOptionPane.ERROR_MESSAGE);
-    }       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-         String mensaje = "";
-        
+        String mensaje = "";
+
         int fila = tbproducto.getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una fila", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-        else {
+        } else {
             estado += 1;
             if (estado == 1) {
-                    desbloquearCajas();
-                    btnActualizar.setText("Modificar");
-                    btnNuevo.setEnabled(false);
-                    btnGuardar.setEnabled(false);
-                    btnEliminar.setEnabled(false);
+                desbloquearCajas();
+                btnActualizar.setText("Modificar");
+                btnNuevo.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                btnEliminar.setEnabled(false);
+            } else if (estado == 2) {
+                String nombre = txtNombreProducto.getText();
+                String descripcion = txtDescripcionProd.getText();
+                String presentacion = (String) cboPresentacion.getSelectedItem();
+                String precioStr = txtprecio.getText();
+                String stockStr = txtstock.getText();
+                if (!nombre.isEmpty() && !descripcion.isEmpty() && !presentacion.isEmpty() && !precioStr.isEmpty() && !stockStr.isEmpty()) {
+                    float precio = Float.parseFloat(txtprecio.getText());
+                    int stock = Integer.parseInt(txtstock.getText());
+                    mensaje = producto.actualizar(codproducto, txtNombreProducto.getText(), txtDescripcionProd.getText(), cboPresentacion.getSelectedItem().toString(), precio, stock);
+                    JOptionPane.showMessageDialog(null, mensaje);
+                    btnActualizar.setText("EDITAR");
+                    limpiarTabla();
+                    listar();
+                    desbloquearBotones();
+                    bloquearCajas();
+                    //estado = 1
+                } else {
+                    JOptionPane.showMessageDialog(null, "Debes completar todos los datos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+                estado = 0;
             }
-            else if (estado == 2) {
-                    String nombre = txtNombreProducto.getText();
-                    String descripcion = txtDescripcionProd.getText();
-                    String presentacion= (String) cboPresentacion.getSelectedItem();
-                    String precioStr = txtprecio.getText();
-                    String stockStr = txtstock.getText();
-                    if (!nombre.isEmpty() && !descripcion.isEmpty()&& !presentacion.isEmpty() && !precioStr.isEmpty() && !stockStr.isEmpty()) {
-                            float precio = Float.parseFloat(txtprecio.getText());
-                            int stock = Integer.parseInt(txtstock.getText());
-                        mensaje =producto.actualizar(codproducto, txtNombreProducto.getText(), txtDescripcionProd.getText(),cboPresentacion.getSelectedItem().toString(), precio,stock);
-                        JOptionPane.showMessageDialog(null, mensaje);
-                        btnActualizar.setText("EDITAR");
-                        limpiarTabla();
-                        listar();
-                        desbloquearBotones();
-                        bloquearCajas();
-                        //estado = 1
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Debes completar todos los datos", "ERROR", JOptionPane.ERROR_MESSAGE);
-                    }
-                    estado = 0;
-            } 
-        } 
-     
+        }
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
-   
+
     private void txtbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscarActionPerformed
 
     }//GEN-LAST:event_txtbuscarActionPerformed
 
     private void tbproductoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_tbproductoComponentAdded
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_tbproductoComponentAdded
 
     private void tbproductoComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_tbproductoComponentRemoved
@@ -548,7 +591,7 @@ public class plProductos extends javax.swing.JPanel {
 
     private void cboPresentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPresentacionActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_cboPresentacionActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -561,16 +604,16 @@ public class plProductos extends javax.swing.JPanel {
             mensaje = producto.eliminar(codproducto);
             JOptionPane.showMessageDialog(null, mensaje);
         }
-        
+
         limpiarTabla();
         listar();
         //btnNuevoActionPerformed(evt);
-        
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbproductoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbproductoMouseReleased
         // TODO add your handling code here:
-         int fila = tbproducto.getSelectedRow();
+        int fila = tbproducto.getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una fila");
         } else {
@@ -581,13 +624,13 @@ public class plProductos extends javax.swing.JPanel {
             cboPresentacion.setSelectedItem(tbproducto.getValueAt(fila, 3).toString());
             txtprecio.setText(tbproducto.getValueAt(fila, 4).toString());
             txtstock.setText(tbproducto.getValueAt(fila, 5).toString());
-            
+
         }
     }//GEN-LAST:event_tbproductoMouseReleased
 
     private void txtNombreProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProductoKeyTyped
-   
-         // TODO add your handling code here:
+
+        // TODO add your handling code here:
         char c = evt.getKeyChar();
         if ((!(Character.isLetter(c)) && (!(c == KeyEvent.VK_BACK_SPACE)) && (!(c == KeyEvent.VK_SPACE)))) {
             evt.consume();
@@ -597,37 +640,37 @@ public class plProductos extends javax.swing.JPanel {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-            
+
     }//GEN-LAST:event_txtNombreProductoKeyTyped
 
     private void txtDescripcionProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionProdKeyTyped
-       
-       // TODO add your handling code here:
-    char c = evt.getKeyChar();
 
-    if (!(Character.isLetterOrDigit(c)) && !(c == KeyEvent.VK_BACK_SPACE) && !(c == KeyEvent.VK_SPACE)) {
-       evt.consume();
-       Toolkit.getDefaultToolkit().beep();
-       }
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
 
-      if (txtDescripcionProd.getText().length() >= 100) { 
-      evt.consume();
-      Toolkit.getDefaultToolkit().beep();
-      } 
+        if (!(Character.isLetterOrDigit(c)) && !(c == KeyEvent.VK_BACK_SPACE) && !(c == KeyEvent.VK_SPACE)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+
+        if (txtDescripcionProd.getText().length() >= 100) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtDescripcionProdKeyTyped
 
     private void txtprecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprecioKeyTyped
         char c = evt.getKeyChar();
 
-    if (!(Character.isDigit(c)) && !(c == KeyEvent.VK_BACK_SPACE) && !(c == '.') && !(c == ',')) {
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-    }
+        if (!(Character.isDigit(c)) && !(c == KeyEvent.VK_BACK_SPACE) && !(c == '.') && !(c == ',')) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
 
-    if (txtprecio.getText().length() >= 12) { 
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-     }
+        if (txtprecio.getText().length() >= 12) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtprecioKeyTyped
 
     private void txtstockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtstockKeyPressed
@@ -637,20 +680,20 @@ public class plProductos extends javax.swing.JPanel {
     private void txtstockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtstockKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-    if (!(Character.isDigit(c)) && !(c == KeyEvent.VK_BACK_SPACE)) {
-        evt.consume();
-        Toolkit.getDefaultToolkit().beep();
-    }
-   
-    if (txtstock.getText().length() >= 10) { 
-        evt.consume();
-        Toolkit.getDefaultToolkit().beep();
-    }
+        if (!(Character.isDigit(c)) && !(c == KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+
+        if (txtstock.getText().length() >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtstockKeyTyped
 
     private void txtbuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyPressed
 
-           // TODO add your handling code here:
+        // TODO add your handling code here:
         /*char c = evt.getKeyChar();
 
         if ((!(Character.isDigit(c)) && (!(c == KeyEvent.VK_BACK_SPACE)))) {
@@ -672,9 +715,8 @@ public class plProductos extends javax.swing.JPanel {
     }//GEN-LAST:event_txtbuscarKeyPressed
 
     private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
-     
- 
-                if (!txtbuscar.getText().isEmpty()) {
+
+        if (!txtbuscar.getText().isEmpty()) {
             nombre = txtbuscar.getText();
             productoDTO = producto.buscar(nombre);
             if (productoDTO != null) {
@@ -699,38 +741,57 @@ public class plProductos extends javax.swing.JPanel {
             listar();
             //lblMensaje.setText("");
 
-      }         
+        }
     }//GEN-LAST:event_txtbuscarKeyReleased
 
     private void txtbuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyTyped
         // TODO add your handling code here:
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         char c = evt.getKeyChar();
 
         if ((!(Character.isLetter(c)) && (!(c == KeyEvent.VK_BACK_SPACE)) && (!(c == KeyEvent.VK_SPACE)))) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-          txtbuscarKeyPressed(evt);
-        
-        
+        txtbuscarKeyPressed(evt);
+
         if (txtbuscar.getText().length() >= 50) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
-            
+
             if ((!txtbuscar.getText().startsWith("1")) && (!txtbuscar.getText().startsWith("2"))) {
                 JOptionPane.showMessageDialog(null, "Nombre no válido", "ERROR", JOptionPane.ERROR_MESSAGE);
-              
+
             }
-        } 
-        
+        }
+
     }//GEN-LAST:event_txtbuscarKeyTyped
 
-    
+    private void btnGestionarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarCategoriaActionPerformed
+        if (jFrameAdmin.isVisible()) {
+            plCategoria panelCategoria = new plCategoria(jFrameAdmin);
+            panelCategoria.setSize(1024, 700);
+            panelCategoria.setLocation(0, 0);
+            jFrameAdmin.jpContenedor.removeAll();
+            jFrameAdmin.jpContenedor.add(panelCategoria, BorderLayout.CENTER);
+            jFrameAdmin.jpContenedor.revalidate();
+            jFrameAdmin.jpContenedor.repaint();
+        } else {
+            plCategoria panelCategoria = new plCategoria(jFrameVededor);
+            panelCategoria.setSize(1024, 700);
+            panelCategoria.setLocation(0, 0);
+            jFrameVededor.contenidoJPanel.removeAll();
+            jFrameVededor.contenidoJPanel.add(panelCategoria, BorderLayout.CENTER);
+            jFrameVededor.contenidoJPanel.revalidate();
+            jFrameVededor.contenidoJPanel.repaint();
+        }
+    }//GEN-LAST:event_btnGestionarCategoriaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGestionarCategoria;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JComboBox<String> cboPresentacion;
@@ -758,5 +819,4 @@ public class plProductos extends javax.swing.JPanel {
     private javax.swing.JTextField txtstock;
     // End of variables declaration//GEN-END:variables
 
-    
 }

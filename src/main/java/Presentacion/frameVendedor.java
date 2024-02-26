@@ -41,6 +41,10 @@ public class frameVendedor extends javax.swing.JFrame {
         inicarFrameVendedor();
     }
 
+    public frameVendedor() {
+        initComponents();
+    }
+
     private void inicarFrameVendedor() {
         this.setLocationRelativeTo(null);
         this.setTitle("Vendedor - Sistema de Gestión de Clientes");
@@ -256,7 +260,9 @@ public class frameVendedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-
+        plProductos jpProductos = new plProductos(frameVendedor.this);
+        mostrarPanel(jpProductos);
+        seleccionarBoton(true, false, false, false, false);
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
@@ -327,7 +333,7 @@ public class frameVendedor extends javax.swing.JFrame {
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnReportes;
     private javax.swing.JButton btnVentas;
-    private javax.swing.JPanel contenidoJPanel;
+    public javax.swing.JPanel contenidoJPanel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
