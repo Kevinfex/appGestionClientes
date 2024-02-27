@@ -19,6 +19,7 @@ Presentacion\plEmpleados$1.class
 Presentacion\frameLogin$1.class
 Presentacion\plProductos$5.class
 Presentacion\plCategoria.class
+Presentacion\plEmpleados$7.class
 Presentacion\plCliente$1.class
 Presentacion\plUsuarios$7.class
 Presentacion\plProductos$4.class
@@ -34,10 +35,12 @@ Presentacion\plEmpleados$6.class
 Presentacion\plVenta.class
 TransferObject\UsuarioDTO.class
 Presentacion\plCliente$14.class
+Presentacion\plUsuarios$8.class
 Presentacion\plCategoria$5.class
 Presentacion\panelFormularioEmpleado$3.class
 Swing\Containers\PanelShadow.class
 TransferObject\productoDTO.class
+Presentacion\plUsuarios$9.class
 Presentacion\plPerfil$4.class
 DataAccessObject\ICrud.class
 DataSource\Conexion.class
@@ -57,6 +60,7 @@ Presentacion\frameAdministrador$8.class
 Presentacion\frameLogin.class
 Presentacion\frameVendedor$1.class
 Presentacion\plPerfil$2.class
+Presentacion\plEmpleados$8.class
 Presentacion\plPerfil$3.class
 Presentacion\plCliente$17.class
 Presentacion\plProductos$1.class
@@ -108,6 +112,7 @@ Presentacion\plProductos$9.class
 Presentacion\plVenta$5.class
 Presentacion\plCliente$3.class
 Presentacion\plProductos$6.class
+Presentacion\plUsuarios$11.class
 Presentacion\plEmpleados$3.class
 Utilities\DisabledItemRenderer.class
 Presentacion\plProductos.class
@@ -117,6 +122,7 @@ BusinessObject\producto.class
 Presentacion\frameAdministrador$2.class
 Presentacion\plProductos$16.class
 Swing\Containers\ShadowRenderer.class
+Presentacion\plUsuarios$10.class
 Presentacion\plCategoria$3.class
 Presentacion\plProductos$13.class
 Presentacion\frameAdministrador$1.class

@@ -1,4 +1,3 @@
-
 package BusinessObject;
 
 import DataAccessObject.CategoriaDAO;
@@ -10,56 +9,61 @@ import java.util.List;
  * @author KEVIN EP
  */
 public class Categoria {
+
     private CategoriaDAO daoCategoria;
     private CategoriaDTO dtoCategoria;
-
+    
     public Categoria() {
         daoCategoria = new CategoriaDAO();
     }
     
-     public String agregar(String nombreCategoria){
+    public String agregar(String nombreCategoria) {
         String mensaje;
-
-        dtoCategoria = new CategoriaDTO( nombreCategoria);
-        if (daoCategoria.agregar(dtoCategoria))
+        
+        dtoCategoria = new CategoriaDTO(nombreCategoria);
+        if (daoCategoria.agregar(dtoCategoria)) {
             mensaje = "Categoria Generado Correctamente";
-        else
+        } else {
             mensaje = "Registro no guardado";
+        }
         return mensaje;
     }
     
-     public String actualizar(String codCategoria, String nombreCategoria) {
-        String mensaje; 
+    public String actualizar(String codCategoria, String nombreCategoria) {
+        String mensaje;        
         dtoCategoria = new CategoriaDTO(codCategoria, nombreCategoria);
-        if (daoCategoria.actualizar(dtoCategoria))
+        if (daoCategoria.actualizar(dtoCategoria)) {
             mensaje = "Se actualizó correctamente";
-        else
+        } else {
             mensaje = "Error, no se pudo actualizar";
+        }
         return mensaje;
     }
     
-    public String eliminar(String codCategoria){
+    public String eliminar(String codCategoria) {
         String mensaje;
         dtoCategoria = new CategoriaDTO();
         dtoCategoria.setCodCategoria(codCategoria);
-        if (daoCategoria.eliminar(dtoCategoria))
+        if (daoCategoria.eliminar(dtoCategoria)) {
             mensaje = "Categoria eliminado con éxito";
-        else
+        } else {
             mensaje = "Registro no Eliminado";
+        }
         return mensaje;
     }
-     
-     public CategoriaDTO buscar(String codCategoria){
-         dtoCategoria = new CategoriaDTO();
-         dtoCategoria.setCodCategoria(codCategoria);
+    
+    public CategoriaDTO buscar(String codCategoria) {
+        dtoCategoria = new CategoriaDTO();
+        dtoCategoria.setCodCategoria(codCategoria);
         dtoCategoria = daoCategoria.buscar(dtoCategoria);
-
-        if (dtoCategoria !=null)
+        
+        if (dtoCategoria != null) {
             return dtoCategoria;
+        }
         return null;
     }
     
-    public List<CategoriaDTO>listar() {
+    public List<CategoriaDTO> listar() {
         if (daoCategoria.listar() != null) {
             List<CategoriaDTO> lista = daoCategoria.listar();
             return lista;

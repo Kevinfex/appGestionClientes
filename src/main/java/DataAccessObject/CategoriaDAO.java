@@ -2,7 +2,6 @@ package DataAccessObject;
 
 import DataSource.Conexion;
 import TransferObject.CategoriaDTO;
-import TransferObject.RolUsuarioDTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
