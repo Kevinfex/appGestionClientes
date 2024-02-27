@@ -37,7 +37,24 @@ public class plCliente extends javax.swing.JPanel {
         listar();
         bloquearCajas();
         desbloquearBotones();
+        medidaColumnasTabla();
     }
+    
+    public void medidaColumnasTabla() {
+        //Medida de 996
+        tbClientes.getColumnModel().getColumn(0).setPreferredWidth(60);
+        tbClientes.getColumnModel().getColumn(1).setPreferredWidth(100);//160
+        tbClientes.getColumnModel().getColumn(2).setPreferredWidth(200);//360
+        tbClientes.getColumnModel().getColumn(3).setPreferredWidth(150);//510
+        tbClientes.getColumnModel().getColumn(4).setPreferredWidth(120);//630
+        tbClientes.getColumnModel().getColumn(5).setPreferredWidth(100);//730
+        tbClientes.getColumnModel().getColumn(6).setPreferredWidth(146);//850
+        tbClientes.getColumnModel().getColumn(7).setPreferredWidth(120);//
+    }
+    
+    /*public boolean isCellEditable(int row, int column) {
+        return false;
+    }*/
 
     private void limpiarCajas() {
         txtCodigo.setText("");
@@ -496,13 +513,32 @@ public class plCliente extends javax.swing.JPanel {
             new String [] {
                 "CODIGO", "RUC", "RAZON SOCIAL", "NOMBRE COMERCIAL", "DIRECCION", "CELULAR", "DISTRITO", "PROVINCIA"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbClientes.getTableHeader().setReorderingAllowed(false);
         tbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tbClientesMouseReleased(evt);
             }
         });
         jScrollPane1.setViewportView(tbClientes);
+        if (tbClientes.getColumnModel().getColumnCount() > 0) {
+            tbClientes.getColumnModel().getColumn(0).setResizable(false);
+            tbClientes.getColumnModel().getColumn(1).setResizable(false);
+            tbClientes.getColumnModel().getColumn(2).setResizable(false);
+            tbClientes.getColumnModel().getColumn(3).setResizable(false);
+            tbClientes.getColumnModel().getColumn(4).setResizable(false);
+            tbClientes.getColumnModel().getColumn(5).setResizable(false);
+            tbClientes.getColumnModel().getColumn(6).setResizable(false);
+            tbClientes.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -819,25 +855,43 @@ public class plCliente extends javax.swing.JPanel {
             //celularcliente = celular;
             //clienteDTO = cliente.buscar(ruccliente);
             //if (clienteDTO != null) {
-            if (!cliente.buscarRazonSocial(razonsocial)) {
-                if (!cliente.buscarNombreComercial(nombrecomercial)) {
-                    mensaje = cliente.agregar(txtCodigo.getText(), txtRUC.getText(), txtRazonSocial.getText(), txtNombreComercial.getText(),
-                            txtDireccionFiscal.getText(), txtCelular.getText(), txtDistrito.getText(), txtProvincia.getText());
-                    JOptionPane.showMessageDialog(null, mensaje);
-                    if (mensaje.equals("Registro Guardado")) {
-                        limpiarTabla();
-                        listar();
-                        limpiarCajas();
-                        desbloquearBotones();
-                        bloquearCajas();
+
+            if (!cliente.buscarRuc(ruc)) {
+                if (!cliente.buscarRazonSocial(razonsocial)) {
+                    if (!cliente.buscarNombreComercial(nombrecomercial)) {
+                        if (!cliente.buscarDireccionFiscal(direccion)) {
+                            if (!cliente.buscarCelular(celular)) {
+                                mensaje = cliente.agregar(txtCodigo.getText(), txtRUC.getText(), txtRazonSocial.getText(), txtNombreComercial.getText(),
+                                        txtDireccionFiscal.getText(), txtCelular.getText(), txtDistrito.getText(), txtProvincia.getText());
+                                JOptionPane.showMessageDialog(null, mensaje);
+                                if (mensaje.equals("Registro Guardado")) {
+                                    limpiarTabla();
+                                    listar();
+                                    limpiarCajas();
+                                    desbloquearBotones();
+                                    bloquearCajas();
+                                }
+                            } else {
+                                mensaje = "Registro " + celular + " ya existe";
+                                JOptionPane.showMessageDialog(null, mensaje, "ERROR!", JOptionPane.ERROR_MESSAGE);
+                            }
+                            
+                        } else {
+                            mensaje = "Registro " + direccion + " ya existe";
+                            JOptionPane.showMessageDialog(null, mensaje, "ERROR!", JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    } else {
+                        mensaje = "Registro " + nombrecomercial + " ya existe";
+                        JOptionPane.showMessageDialog(null, mensaje, "ERROR!", JOptionPane.ERROR_MESSAGE);
                     }
+
                 } else {
-                    mensaje = "Registro " + nombrecomercial + " ya existe";
+                    mensaje = "Registro " + razonsocial + " ya existe";
                     JOptionPane.showMessageDialog(null, mensaje, "ERROR!", JOptionPane.ERROR_MESSAGE);
                 }
-
             } else {
-                mensaje = "Registro " + razonsocial + " ya existe";
+                mensaje = "Registro " + ruc + " ya existe";
                 JOptionPane.showMessageDialog(null, mensaje, "ERROR!", JOptionPane.ERROR_MESSAGE);
             }
 
@@ -865,7 +919,9 @@ public class plCliente extends javax.swing.JPanel {
                 btnNuevoCliente.setEnabled(false);
                 btnGuardarCliente.setEnabled(false);
                 btnEliminarCliente.setEnabled(false);
-            } else if (estado == 2) {
+            } else 
+                //estado += 1;
+                if (estado == 2) {
                 String ruc = txtRUC.getText();
                 String apellido = txtRazonSocial.getText();
                 String nombre = txtNombreComercial.getText();
@@ -881,14 +937,19 @@ public class plCliente extends javax.swing.JPanel {
 
                     limpiarTabla();
                     listar();
+                    limpiarCajas();
                     desbloquearBotones();
                     bloquearCajas();
+                    tbClientes.clearSelection();
+                    
                     //estado = 1
                 } else {
                     JOptionPane.showMessageDialog(null, "Debes completar todos los datos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    
                 }
                 estado = 0;
             }
+            
         }
     }//GEN-LAST:event_btnEditarrClienteActionPerformed
 

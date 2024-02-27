@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -556,15 +556,62 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="8" rowCount="0">
-                        <Column editable="true" title="CODIGO" type="java.lang.Object"/>
-                        <Column editable="true" title="RUC" type="java.lang.Object"/>
-                        <Column editable="true" title="RAZON SOCIAL" type="java.lang.Object"/>
-                        <Column editable="true" title="NOMBRE COMERCIAL" type="java.lang.Object"/>
-                        <Column editable="true" title="DIRECCION" type="java.lang.Object"/>
-                        <Column editable="true" title="CELULAR" type="java.lang.Object"/>
-                        <Column editable="true" title="DISTRITO" type="java.lang.Object"/>
-                        <Column editable="true" title="PROVINCIA" type="java.lang.Object"/>
+                        <Column editable="false" title="CODIGO" type="java.lang.Object"/>
+                        <Column editable="false" title="RUC" type="java.lang.Object"/>
+                        <Column editable="false" title="RAZON SOCIAL" type="java.lang.Object"/>
+                        <Column editable="false" title="NOMBRE COMERCIAL" type="java.lang.Object"/>
+                        <Column editable="false" title="DIRECCION" type="java.lang.Object"/>
+                        <Column editable="false" title="CELULAR" type="java.lang.Object"/>
+                        <Column editable="false" title="DISTRITO" type="java.lang.Object"/>
+                        <Column editable="false" title="PROVINCIA" type="java.lang.Object"/>
                       </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
