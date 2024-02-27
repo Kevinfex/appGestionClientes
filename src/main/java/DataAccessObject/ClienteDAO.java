@@ -167,6 +167,35 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         return lista;
     }
     
+    public boolean buscarRuc(ClienteDTO dtocliente) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //boolean encontrado = false;
+        
+        try {
+            ps = conexion.conectar().prepareStatement("select count(*) from cliente where ruccliente=?");
+            ps.setString(1, dtocliente.getRuc());
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                int cantidad = rs.getInt(1); // Obtener el valor de la primera columna (COUNT)
+                if (cantidad == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+           
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+        finally {
+            conexion.desconectar();
+        }
+        return false;
+    }
+    
     public boolean buscarRazonSocial(String razonsocial) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         //boolean encontrado = false;
@@ -223,5 +252,123 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
             conexion.desconectar();
         }
         return false;
+    }
+    
+    public boolean buscarDireccionFiscal(ClienteDTO dtocliente) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //boolean encontrado = false;
+        
+        try {
+            ps = conexion.conectar().prepareStatement("select count(*) from cliente where direccionfiscal=?");
+            ps.setString(1, dtocliente.getDireccionfiscal());
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                int cantidad = rs.getInt(1); // Obtener el valor de la primera columna (COUNT)
+                if (cantidad == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+           
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+        finally {
+            conexion.desconectar();
+        }
+        return false;
+    }
+    
+    public boolean buscarCelular(ClienteDTO dtocliente) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //boolean encontrado = false;
+        
+        try {
+            ps = conexion.conectar().prepareStatement("select count(*) from cliente where celularcliente=?");
+            ps.setString(1, dtocliente.getCelular());
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                int cantidad = rs.getInt(1); // Obtener el valor de la primera columna (COUNT)
+                if (cantidad == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+           
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+        finally {
+            conexion.desconectar();
+        }
+        return false;
+    }
+    
+    public List<ClienteDTO> listarPersonaNatural() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<ClienteDTO> lista = new ArrayList<>();
+        try {
+            ps = conexion.conectar().prepareStatement("select * from Cliente where ruccliente like '1%'");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ClienteDTO t = new ClienteDTO();
+                t.setCodCliente(rs.getString(1));
+                t.setRuc(rs.getString(2));
+                t.setRazonsocial(rs.getString(3));
+                t.setNombrecomercial(rs.getString(4));
+                t.setDireccionfiscal(rs.getString(5));
+                t.setCelular(rs.getString(6));
+                t.setDistrito(rs.getString(7));
+                t.setProvincia(rs.getString(8));
+                
+                lista.add(t);
+            }
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+        finally {
+            conexion.desconectar();
+        }
+        return lista;
+    }
+    
+    public List<ClienteDTO> listarPersonaJuridica() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<ClienteDTO> lista = new ArrayList<>();
+        try {
+            ps = conexion.conectar().prepareStatement("select * from Cliente where ruccliente like '2%'");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ClienteDTO t = new ClienteDTO();
+                t.setCodCliente(rs.getString(1));
+                t.setRuc(rs.getString(2));
+                t.setRazonsocial(rs.getString(3));
+                t.setNombrecomercial(rs.getString(4));
+                t.setDireccionfiscal(rs.getString(5));
+                t.setCelular(rs.getString(6));
+                t.setDistrito(rs.getString(7));
+                t.setProvincia(rs.getString(8));
+                
+                lista.add(t);
+            }
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+        finally {
+            conexion.desconectar();
+        }
+        return lista;
     }
 }

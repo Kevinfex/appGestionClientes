@@ -24,6 +24,19 @@ public class Cliente {
         clienteDAO = new ClienteDAO();
     }
     
+    public boolean buscarRuc(String ruc) {
+        clienteDTO = new ClienteDTO();
+        clienteDTO.setRuc(ruc);
+        boolean resultado = clienteDAO.buscarRuc(clienteDTO);
+        if (resultado)
+            return true;
+        else
+            return false;
+            //mensaje = "Registro " + razonsocial + " ya existe";
+        
+        //return mensaje;
+    }
+    
     public boolean buscarRazonSocial(String razonsocial) {
         
         boolean resultado = clienteDAO.buscarRazonSocial(razonsocial);
@@ -47,6 +60,48 @@ public class Cliente {
             //mensaje = "Registro " + razonsocial + " ya existe";
         
         //return mensaje;
+    }
+    
+    public boolean buscarDireccionFiscal(String direccionfiscal) {
+        clienteDTO = new ClienteDTO();
+        clienteDTO.setDireccionfiscal(direccionfiscal);
+        boolean resultado = clienteDAO.buscarDireccionFiscal(clienteDTO);
+        if (resultado)
+            return true;
+        else
+            return false;
+            //mensaje = "Registro " + razonsocial + " ya existe";
+        
+        //return mensaje;
+    }
+    
+    public boolean buscarCelular(String celular) {
+        clienteDTO = new ClienteDTO();
+        clienteDTO.setCelular(celular);
+        boolean resultado = clienteDAO.buscarCelular(clienteDTO);
+        if (resultado)
+            return true;
+        else
+            return false;
+            //mensaje = "Registro " + razonsocial + " ya existe";
+        
+        //return mensaje;
+    }
+    
+    public List<ClienteDTO>listarPersonaNatural(){
+        if(clienteDAO.listarPersonaNatural()!=null){
+            List<ClienteDTO>lista = clienteDAO.listarPersonaNatural();
+            return lista;
+        }
+        return null;
+    }
+    
+    public List<ClienteDTO>listarPersonaJuridica(){
+        if(clienteDAO.listarPersonaJuridica()!=null){
+            List<ClienteDTO>lista = clienteDAO.listarPersonaJuridica();
+            return lista;
+        }
+        return null;
     }
     
     public String agregar(String codcliente, String ruc, String razonsocial, String nombrecomercial, String direccion, String celular, String distrito, String provincia){
