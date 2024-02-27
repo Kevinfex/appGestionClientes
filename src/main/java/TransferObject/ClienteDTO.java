@@ -15,6 +15,8 @@ public class ClienteDTO {
     private String celular;
     private String distrito;
     private String provincia;
+    private String nombres;
+    private String apellidos;
 
     public ClienteDTO() {
     }
