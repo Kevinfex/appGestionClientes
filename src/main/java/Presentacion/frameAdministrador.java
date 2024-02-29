@@ -290,7 +290,7 @@ public class frameAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         plReportes jpReportes = new plReportes();
         mostrarPanel(jpReportes);
-        seleccionarBoton(false, true, false, false, false, false, false);
+        seleccionarBoton(false, false, false, false, false, true, false);
     }//GEN-LAST:event_btnReportesActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed

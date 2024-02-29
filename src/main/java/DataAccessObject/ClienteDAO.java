@@ -256,7 +256,6 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         return false;
     }
     
-<<<<<<< HEAD
     public boolean buscarDireccionFiscal(ClienteDTO dtocliente) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         //boolean encontrado = false;
@@ -368,9 +367,13 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;
+        } finally {
+            conexion.desconectar();
         }
-        finally {
-=======
+        return lista;
+    }
+
+
     public List<ClienteDTO> rellenarClientes(){
         
         List<ClienteDTO> lista = new ArrayList<>();
@@ -387,7 +390,7 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         }catch(SQLException ex){
             
         }finally{
->>>>>>> fibarra
+
             conexion.desconectar();
         }
         return lista;
