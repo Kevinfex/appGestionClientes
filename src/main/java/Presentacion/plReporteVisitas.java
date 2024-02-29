@@ -120,14 +120,13 @@ public class plReporteVisitas extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         rbtnVisitas = new javax.swing.JRadioButton();
-        rbtnNatural = new javax.swing.JRadioButton();
         btnMostrar = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         plContenedorReporteVisita = new javax.swing.JPanel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(137, 176, 212), 2, true)));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(137, 176, 212), 2, true), "TIPO DE CLIENTE"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(137, 176, 212), 2, true), "VISITAS"));
 
         btngTipoCliente.add(rbtnVisitas);
         rbtnVisitas.setText("Visitas");
@@ -137,28 +136,21 @@ public class plReporteVisitas extends javax.swing.JPanel {
             }
         });
 
-        btngTipoCliente.add(rbtnNatural);
-        rbtnNatural.setText("Natural");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbtnVisitas)
-                    .addComponent(rbtnNatural))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(rbtnVisitas)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rbtnVisitas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbtnNatural)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         btnMostrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -171,6 +163,11 @@ public class plReporteVisitas extends javax.swing.JPanel {
 
         btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnImprimir.setText("IMPRIMIR");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -249,6 +246,12 @@ public class plReporteVisitas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnVisitasActionPerformed
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // TODO add your handling code here:
+        VisitaPDF pdf = new VisitaPDF();
+        pdf.generarBoletaPDF();
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImprimir;
@@ -257,7 +260,6 @@ public class plReporteVisitas extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel plContenedorReporteVisita;
-    public static javax.swing.JRadioButton rbtnNatural;
     public static javax.swing.JRadioButton rbtnVisitas;
     // End of variables declaration//GEN-END:variables
 }
