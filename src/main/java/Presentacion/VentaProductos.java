@@ -343,7 +343,6 @@ public class VentaProductos extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(cbClientes.getSelectedIndex() == 0 && chkVenta.isSelected()){
             JOptionPane.showMessageDialog(null, "Seleccionar cliente");
-            //jBoleta.setVisible(false);
             chkVenta.setSelected(false);
             
         } else if(cbClientes.getSelectedIndex() > 0 && chkVenta.isSelected()) {   
