@@ -290,7 +290,7 @@ public class frameAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         plReportes jpReportes = new plReportes();
         mostrarPanel(jpReportes);
-        seleccionarBoton(false, true, false, false, false, false, false);
+        seleccionarBoton(false, false, false, false, false, true, false);
     }//GEN-LAST:event_btnReportesActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
@@ -313,8 +313,9 @@ public class frameAdministrador extends javax.swing.JFrame {
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         // TODO add your handling code here:
-        plVenta plventa = new plVenta(dtoEmpleado, dtoUsuario, dtoRolUsuario, frameAdministrador.this);
-        mostrarPanel(plventa);
+        VentaProductos venta = new VentaProductos(dtoEmpleado, dtoUsuario, dtoRolUsuario, frameAdministrador.this);
+        //mostrarPanel(plventa);
+        mostrarPanel(venta);
         seleccionarBoton(false, false, false, false, true, false, false);
     }//GEN-LAST:event_btnVentasActionPerformed
 

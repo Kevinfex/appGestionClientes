@@ -9,8 +9,10 @@ import TransferObject.ClienteDTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -365,8 +367,30 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;
+        } finally {
+            conexion.desconectar();
         }
-        finally {
+        return lista;
+    }
+
+
+    public List<ClienteDTO> rellenarClientes(){
+        
+        List<ClienteDTO> lista = new ArrayList<>();
+        try{
+            ps = conexion.conectar().prepareStatement("SELECT RUCCLIENTE FROM CLIENTE");
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                ClienteDTO t = new ClienteDTO();
+                t.setRuc(rs.getString(1));
+                
+                lista.add(t);
+            }
+        }catch(SQLException ex){
+            
+        }finally{
+
             conexion.desconectar();
         }
         return lista;
