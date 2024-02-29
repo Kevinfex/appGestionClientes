@@ -28,28 +28,7 @@ public class plReporteTablaCliente extends javax.swing.JPanel {
         //cargaDatos();
     }
     
-    /*public void cargaDatos() {
-        if (plReporteClientes.rbtnJuridica.isSelected()) {
-            try {
-                modelo = (DefaultTableModel) plReporteTablaCliente.tbReporteClientes.getModel();
-                Object[] ob = new Object[8];
-                for (ClienteDTO p : cliente.listarPersonaNatural()) {
-                    ob[0] = p.getCodCliente();
-                    ob[1] = p.getRuc();
-                    ob[2] = p.getRazonsocial();
-                    ob[3] = p.getNombrecomercial();
-                    ob[4] = p.getDireccionfiscal();
-                    ob[5] = p.getCelular();
-                    ob[6] = p.getDistrito();
-                    ob[7] = p.getProvincia();
-                    modelo.addRow(ob);
-                }
-                plReporteTablaCliente.tbReporteClientes.setModel(modelo);
-            } catch (Exception ex) {
-
-            }
-        }
-    }*/
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
