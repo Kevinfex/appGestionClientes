@@ -4,6 +4,8 @@
  */
 package Presentacion;
 
+import Reportes.plReporteVisitas;
+import Reportes.plReporteClientes;
 import java.awt.BorderLayout;
 
 /**

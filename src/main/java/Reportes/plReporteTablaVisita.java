@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Presentacion;
+package Reportes;
 
 import BusinessObject.Cliente;
 import BusinessObject.Visita;
@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
 import BusinessObject.Cliente;
 import BusinessObject.Visita;
-import static Presentacion.plReporteTablaVisita.tbReporteVisitas;
+import static Reportes.plReporteTablaVisita.tbReporteVisitas;
 import TransferObject.ClienteDTO;
 import TransferObject.VisitaDTO;
 import java.awt.BorderLayout;
