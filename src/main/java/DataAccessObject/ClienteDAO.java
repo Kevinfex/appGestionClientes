@@ -9,8 +9,10 @@ import TransferObject.ClienteDTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -254,6 +256,7 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         return false;
     }
     
+<<<<<<< HEAD
     public boolean buscarDireccionFiscal(ClienteDTO dtocliente) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         //boolean encontrado = false;
@@ -367,6 +370,24 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
             return null;
         }
         finally {
+=======
+    public List<ClienteDTO> rellenarClientes(){
+        
+        List<ClienteDTO> lista = new ArrayList<>();
+        try{
+            ps = conexion.conectar().prepareStatement("SELECT RUCCLIENTE FROM CLIENTE");
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                ClienteDTO t = new ClienteDTO();
+                t.setRuc(rs.getString(1));
+                
+                lista.add(t);
+            }
+        }catch(SQLException ex){
+            
+        }finally{
+>>>>>>> fibarra
             conexion.desconectar();
         }
         return lista;

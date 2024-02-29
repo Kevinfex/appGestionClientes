@@ -78,6 +78,14 @@ public class plVenta extends javax.swing.JPanel {
         btnNuevo = new javax.swing.JButton();
         pnlBoleta = new javax.swing.JPanel();
         pnlDatos = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txtDireccionFiscal = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtCelular = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtDistrito = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtProvincia = new javax.swing.JTextField();
         btnCerrarBoleta = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -173,22 +181,84 @@ public class plVenta extends javax.swing.JPanel {
         pnlBoleta.setLayout(pnlBoletaLayout);
         pnlBoletaLayout.setHorizontalGroup(
             pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 577, Short.MAX_VALUE)
         );
         pnlBoletaLayout.setVerticalGroup(
             pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jLabel6.setText("DIRECCIÓN FISCAL :");
+
+        txtDireccionFiscal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDireccionFiscalKeyTyped(evt);
+            }
+        });
+
+        jLabel7.setText("CELULAR :");
+
+        txtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCelularKeyTyped(evt);
+            }
+        });
+
+        jLabel8.setText("DISTRITO :");
+
+        txtDistrito.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDistritoKeyTyped(evt);
+            }
+        });
+
+        jLabel10.setText("PROVINCIA :");
+
+        txtProvincia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtProvinciaKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 757, Short.MAX_VALUE)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addGap(337, 337, 337)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 587, Short.MAX_VALUE)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
 
         btnCerrarBoleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir.png"))); // NOI18N
@@ -206,7 +276,7 @@ public class plVenta extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 1286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(btnCerrarBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(layout.createSequentialGroup()
@@ -326,6 +396,52 @@ public class plVenta extends javax.swing.JPanel {
         btnNuevo.setEnabled(false);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void txtDireccionFiscalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionFiscalKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionFiscalKeyTyped
+
+    private void txtCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelularKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if ((!(Character.isDigit(c)) && (!(c == KeyEvent.VK_BACK_SPACE)))) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        if (txtCelular.getText().length() >= 9) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            if (!txtCelular.getText().startsWith("9")) {
+                JOptionPane.showMessageDialog(null, "N° Celular no válido", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_txtCelularKeyTyped
+
+    private void txtDistritoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDistritoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if ((!(Character.isLetter(c)) && (!(c == KeyEvent.VK_BACK_SPACE)) && (!(c == KeyEvent.VK_SPACE)))) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        if (txtDistrito.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtDistritoKeyTyped
+
+    private void txtProvinciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvinciaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if ((!(Character.isLetter(c)) && (!(c == KeyEvent.VK_BACK_SPACE)) && (!(c == KeyEvent.VK_SPACE)))) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        if (txtProvincia.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtProvinciaKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarCliente;
@@ -334,12 +450,20 @@ public class plVenta extends javax.swing.JPanel {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnProcesar;
     private javax.swing.JCheckBox chkbVenta;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public static javax.swing.JLabel lblFechaVisita;
     private javax.swing.JPanel pnlBoleta;
     private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlVisita;
+    private javax.swing.JTextField txtCelular;
     public static javax.swing.JTextField txtClienteVisita;
+    private javax.swing.JTextField txtDireccionFiscal;
+    private javax.swing.JTextField txtDistrito;
+    private javax.swing.JTextField txtProvincia;
     // End of variables declaration//GEN-END:variables
 }

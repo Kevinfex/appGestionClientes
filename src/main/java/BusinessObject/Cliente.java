@@ -8,6 +8,7 @@ import DataAccessObject.ClienteDAO;
 import TransferObject.ClienteDTO;
 import TransferObject.EmpleadoDTO;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -203,6 +204,14 @@ public class Cliente {
     public List<ClienteDTO>listar(){
         if(clienteDAO.listar()!=null){
             List<ClienteDTO>lista = clienteDAO.listar();
+            return lista;
+        }
+        return null;
+    }
+    
+    public List<ClienteDTO> listarClientes(){
+        if(clienteDAO.rellenarClientes()!=null){
+            List<ClienteDTO>lista = clienteDAO.rellenarClientes();
             return lista;
         }
         return null;
