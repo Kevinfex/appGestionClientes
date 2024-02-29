@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Presentacion;
+package Reportes;
 
 import BusinessObject.Cliente;
 import BusinessObject.Visita;
-import static Presentacion.plReporteTablaVisita.tbReporteVisitas;
-import Presentacion.plReporteVisitas.BotonRenderer;
+import Reportes.Designs.VisitaPDF;
+import static Reportes.plReporteTablaVisita.tbReporteVisitas;
+import Reportes.plReporteVisitas.BotonRenderer;
 import TransferObject.ClienteDTO;
 import TransferObject.VisitaDTO;
 import java.awt.BorderLayout;
