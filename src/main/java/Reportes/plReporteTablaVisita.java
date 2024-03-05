@@ -12,18 +12,30 @@ import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
 import BusinessObject.Cliente;
 import BusinessObject.Visita;
+import BusinessObject.VisitaPedido;
+import Presentacion.plDetallePedidoVisita;
+import Reportes.Designs.VisitaPedidoPDF;
 import static Reportes.plReporteTablaVisita.tbReporteVisitas;
 import TransferObject.ClienteDTO;
 import TransferObject.VisitaDTO;
+import TransferObject.VisitaPedidoDTO;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
@@ -39,6 +51,28 @@ public class plReporteTablaVisita extends javax.swing.JPanel {
     VisitaDTO visitaDTO;
     String personajuridica;
     Visita visita;
+    VisitaPedidoDTO visitaPedidoDTO;
+    VisitaPedido visitaPedido;
+    
+    //public static String mensajePedido = "";
+    public static String codvisita;
+    public static String nombreempleado;
+    public static String nombrecliente;
+    public static String fecha;
+    public static String venta;
+    
+    public JDialog dialog = null;
+    
+    public static List<VisitaPedidoDTO> listaVisitasPedidos;
+    plReporteTablaVisita prtv;
+    
+    //public static Object producto = "";
+    //public static Object precio = "";
+    //public static Object cantidad = "";
+    //public static Object importe = "";
+    //public static String pedidos = "";
+    
+    
 
     /**
      * Creates new form plReporteTipoEmpleado
@@ -48,6 +82,8 @@ public class plReporteTablaVisita extends javax.swing.JPanel {
         modelo = new DefaultTableModel();
         visitaDTO = new VisitaDTO();
         visita = new Visita();
+        visitaPedidoDTO = new VisitaPedidoDTO();
+        visitaPedido = new VisitaPedido();
         //cargaDatos();
     }
 
@@ -85,12 +121,6 @@ public class plReporteTablaVisita extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbReporteVisitasMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                tbReporteVisitasMouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tbReporteVisitasMousePressed(evt);
-            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tbReporteVisitasMouseReleased(evt);
             }
@@ -114,54 +144,281 @@ public class plReporteTablaVisita extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbReporteVisitasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbReporteVisitasMousePressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_tbReporteVisitasMousePressed
-
     private void tbReporteVisitasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbReporteVisitasMouseReleased
         // TODO add your handling code here:
         //tbReporteVisitas.setColumnSelectionInterval(0, 4);
-
+        // TODO add your handling code here:
+        /*int columna = plReporteTablaVisita.tbReporteVisitas.getColumnModel().getColumnIndexAtX(evt.getX());
+        int fila = evt.getY() / plReporteTablaVisita.tbReporteVisitas.getRowHeight();
+        
+        Float total = 0.0f;
+        String mensajeTotal;
+        String mensajePedido = "";*/
+        
+        /*try {
+        if (fila < plReporteTablaVisita.tbReporteVisitas.getRowCount() && fila >= 0 && columna < plReporteTablaVisita.tbReporteVisitas.getColumnCount() && columna >= 0) {
+                Object value = plReporteTablaVisita.tbReporteVisitas.getValueAt(fila, columna);
+                codvisita = (tbReporteVisitas.getValueAt(fila, 0).toString());*/
+                        /*nombreempleado = (tbReporteVisitas.getValueAt(fila, 1).toString());
+                        nombrecliente = (tbReporteVisitas.getValueAt(fila, 2).toString());
+                        fecha = (tbReporteVisitas.getValueAt(fila, 3).toString());
+                        venta = (tbReporteVisitas.getValueAt(fila, 4).toString());*/
+                        
+                        //visitaPedidoDTO = visitaPedido.buscarVisitaPedido(codvisita);
+                        //List<VisitaPedidoDTO> visitaPedidoDTOList = visitaPedido.buscar(codvisita);
+                        /*listaVisitasPedidos = visitaPedido.buscarVisitaPedido(Integer.parseInt(codvisita));
+                        }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println(ex);
+                            }*/
+                        
+        
+        //fila=0;
     }//GEN-LAST:event_tbReporteVisitasMouseReleased
 
     private void tbReporteVisitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbReporteVisitasMouseClicked
         // TODO add your handling code here:
+        int fila = tbReporteVisitas.getSelectedRow();
+        /*if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una fila");
+        } else {*/
+            codvisita = (tbReporteVisitas.getValueAt(fila, 0).toString());
+            nombreempleado = (tbReporteVisitas.getValueAt(fila, 2).toString());
+            nombrecliente = (tbReporteVisitas.getValueAt(fila, 3).toString());
+            fecha = (tbReporteVisitas.getValueAt(fila, 4).toString());
+            venta = (tbReporteVisitas.getValueAt(fila, 5).toString());
+            System.out.print("Click click");
+            prtv = new plReporteTablaVisita();
+            listaVisitasPedidos = visitaPedido.buscarVisitaPedido(Integer.parseInt(plReporteTablaVisita.codvisita));
+            prtv.crearJDialog();
+            
+            //fila=0;
+        //}
+        
         //if (evt.getButton() == MouseEvent.BUTTON1) {
         // Obtener la fila en la que se hizo clic
-        int columna = plReporteTablaVisita.tbReporteVisitas.getColumnModel().getColumnIndexAtX(evt.getX());
+        /*int columna = plReporteTablaVisita.tbReporteVisitas.getColumnModel().getColumnIndexAtX(evt.getX());
         int fila = evt.getY() / plReporteTablaVisita.tbReporteVisitas.getRowHeight();
         
+        Float total = 0.0f;
+        String mensajeTotal;
+        String mensajePedido = "";
+        try {
         if (fila < plReporteTablaVisita.tbReporteVisitas.getRowCount() && fila >= 0 && columna < plReporteTablaVisita.tbReporteVisitas.getColumnCount() && columna >= 0) {
                 Object value = plReporteTablaVisita.tbReporteVisitas.getValueAt(fila, columna);
-                if (value instanceof JButton) {
+                codvisita = (tbReporteVisitas.getValueAt(fila, 0).toString());*/
+                        /*nombreempleado = (tbReporteVisitas.getValueAt(fila, 1).toString());
+                        nombrecliente = (tbReporteVisitas.getValueAt(fila, 2).toString());
+                        fecha = (tbReporteVisitas.getValueAt(fila, 3).toString());
+                        venta = (tbReporteVisitas.getValueAt(fila, 4).toString());*/
+                        
+                        //visitaPedidoDTO = visitaPedido.buscarVisitaPedido(codvisita);
+                        //List<VisitaPedidoDTO> visitaPedidoDTOList = visitaPedido.buscar(codvisita);
+                        //listaVisitasPedidos = visitaPedido.buscarVisitaPedido(Integer.parseInt(codvisita));
+                        //JOptionPane.showMessageDialog(null, listaVisitasPedidos);
+                        //if (visitaPedidoDTO != null) {
+                        //Object[][] pedidosArray = new Object[listaVisitasPedidos.size()][6];
+                        //JOptionPane.showMessageDialog(null, pedidosArray);
+                            
+                                /*Object[] ob = new Object[6];
+                                Integer i = 0;
+                                for (VisitaPedidoDTO p : listaVisitasPedidos) {
+                                    i +=1;
+                                    ob[0] = p.getCodigopedido();
+                                    ob[1] = p.getNumeroserie();
+                                    ob[2] = p.getProducto();
+                                    ob[3] = p.getPrecio();
+                                    ob[4] = p.getCantidad();
+                                    ob[5] = p.getImporte();*/
+                                    
+                                    
+
+                                    //plReporteTablaVisita.tbReporteVisitas.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
+                                    /*Object producto = ob[2];
+                                    Object precio = ob[3];
+                                    Object cantidad = ob[4];
+                                    Object importe = ob[5];
+                                    
+                                    total += (float) importe;
+                                    
+                                    mensajePedido += ("\nProducto: " + i + "\n"
+                                            + "Nombre: " + producto + "\n"
+                                            + "Precio: " + precio + "\n"
+                                            + "Cantidad: " + cantidad + "\n"
+                                            + "Importe: " + importe + "\n");
+                                    //JOptionPane.showMessageDialog(null, mensajePedido);
+                                    
+                                }*/
+                                
+                                //mensajeTotal = ("Total a pagar: " + total);
+                                //pedidos = mensajePedido;
+                                
+
+                                /*JOptionPane.showMessageDialog(null, "PEDIDOS: \n"
+                                        + "-----------------------------\n"
+                                        + "Codigo: " + ob[0] + "\n"
+                                        + "Numero Serie: " + ob[1] + "\n"
+                                        + mensajePedido + "\n"
+                                        + mensajeTotal);*/
+                                
+                                //VisitaPedidoPDF vpPDF = new VisitaPedidoPDF();
+                                //vpPDF.generarBoletaPDF();
+                                
+                                
+                                
+                                /*ReporteDetallePedidoVisita rdpv = new ReporteDetallePedidoVisita();
+                                rdpv.setVisible(true);*/
+                
+                /*if (value instanceof JButton) {
                     ((JButton) value).doClick();
                     JButton boton = (JButton) value;
 
-                    if (boton.getName().equals("Ver")) {
-                        JOptionPane.showMessageDialog(null, "Probando");
+                    if (boton.getName().equals("Ver")) {*/
+                        //System.out.print("Click click");
+                        
+                        
+                                /*System.out.print("Click click");
+                                crearJDialog();*/
+                                /*if (dialog != null && dialog.isVisible()) {
+                            dialog.dispose();
+                            dialog = null;// Cierra el diálogo y libera sus recursos
+                            tbReporteVisitas.clearSelection();
+                        }*/
+                                
+                                //System.out.print("Click click");
+                                
+                                
+                                //tbReporteVisitas.clearSelection();
+                                
+                                //tabla();
+                                
+                                
+
+                                //plReporteTablaVisita.tbReporteVisitas.getColumn("VER").setCellRenderer(new ButtonRenderer());
+                            
+                            //plReporteTablaVisita rtv = new plReporteTablaVisita();
+                            //rtv.obtenerNombreEmpleado();
+                            //VisitaPedidoPDF vpPDF = new VisitaPedidoPDF();
+                            //vpPDF.setVisible(true);
+                            //vpPDF.generarBoletaPDF();
+                            /*if (obtenerNombreEmpleado() == null) {
+                                JOptionPane.showMessageDialog(null, "No hay nada");
+                            }
+                            else {
+                                JOptionPane.showMessageDialog(null, obtenerNombreEmpleado());
+                            }*/
 
                         
-                    }
+                    /*}
                 }
             }
-        
-    //}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println(ex);
+                            }*/
+    
     }//GEN-LAST:event_tbReporteVisitasMouseClicked
 
-    private void tbReporteVisitasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbReporteVisitasMouseEntered
-        // TODO add your handling code here:
-        int fila = plReporteTablaVisita.tbReporteVisitas.rowAtPoint(evt.getPoint());
+    /*public String obtenerNombreEmpleado() {
+        return nombreempleado;
+    }*/
+    public void crearJDialog() {
+        //plReporteVisitas rv = new plReporteVisitas();
+        //JDialog dialog = null;
+        JFrame frame = new JFrame("Ejemplo de JDialog");
         
-        int columna = plReporteTablaVisita.tbReporteVisitas.columnAtPoint(evt.getPoint());
+        
+        
+        // Crear una instancia de JDialog
+        dialog = new JDialog(frame, "Pedidos", true); // El tercer parámetro indica si el diálogo es modal o no
+        JPanel panel = new JPanel();
+        
+        
+        JButton button = new JButton("Imprimir");
+        button.setName("btnImprimir");
+        JButton button2 = new JButton("Cancelar");
+        button.setName("btnCancelar");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear una instancia del nuevo formulario y mostrarlo
+                VisitaPedidoPDF vpPDF = new VisitaPedidoPDF();
+                                vpPDF.generarBoletaPDF();
+            }
+        });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (dialog != null && dialog.isVisible()) {
+                    dialog.dispose();
+                    dialog = null; // Liberar recursos
+                    dialog.setVisible(false);
+                    
+                }
+            }
+        });
+        
+        panel.add(tabla());
+        panel.add(button);
+        panel.add(button2);
+        dialog.add(panel);
+        
+        //dialog.add(panel, tabla());
+        //dialog.add(tabla());
+        
+        
+        
+        // Establecer el tamaño del diálogo
+        dialog.setSize(500, 500);
 
-        // Verificar si el evento ocurrió en la columna de botones
-        if (columna == 5) {
-            JButton boton = (JButton) plReporteTablaVisita.tbReporteVisitas.getValueAt(fila, columna);
-            boton.setBackground(Color.RED); // Cambiar el color del botón al entrar
+        // Establecer la posición del diálogo
+        dialog.setLocationRelativeTo(frame);
+        
+        
+
+        // Hacer visible el diálogo
+        dialog.setVisible(true);
+        
+        
+    }
+    
+    private JScrollPane tabla() {
+        JScrollPane scrollPane = null;
+        try {
+            //plReporteTablaVisita rtv = new plReporteTablaVisita();
+            
+            String[] columnNames = {"ID", "First Name", "Last Name", "f"};
+            modelo = new DefaultTableModel(columnNames, 0);
+            
+            JTable table = new JTable(modelo);
+            
+            for (VisitaPedidoDTO p : prtv.listaVisitasPedidos) {
+                Object[] dato = new Object[4];
+                dato[0] = p.getProducto();
+                dato[1] = p.getPrecio().toString();
+                dato[2] = p.getCantidad().toString();
+                dato[3] = p.getImporte().toString();
+                modelo.addRow(dato);
+                
+                
+            }
+            
+            scrollPane = new JScrollPane(table);
+            
+            
+            
+            
+            
+
+            
+        } catch (Exception ex) {
+
         }
-    }//GEN-LAST:event_tbReporteVisitasMouseEntered
-
+        return scrollPane;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
