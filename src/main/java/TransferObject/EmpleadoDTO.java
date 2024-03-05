@@ -1,5 +1,7 @@
 package TransferObject;
 
+import java.util.Objects;
+
 /**
  *
  * @author KEVIN EP
@@ -74,6 +76,32 @@ public class EmpleadoDTO {
 
     public void setCelular(String CelularCliente) {
         this.Celular = CelularCliente;
+    }
+
+    @Override
+    public String toString() {
+        return Nombres + " " + ApellidoPaterno + " " + ApellidoMaterno;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final EmpleadoDTO other = (EmpleadoDTO) obj;
+        return Objects.equals(this.CodEmpleado, other.CodEmpleado);
     }
     
 }

@@ -2,6 +2,7 @@ package DataAccessObject;
 
 import DataSource.Conexion;
 import TransferObject.EmpleadoDTO;
+import TransferObject.RatioVendedorDTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,8 @@ import java.util.List;
  *
  * @author KEVIN EP
  */
-public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
+public class EmpleadoDAO implements ICrud<EmpleadoDTO> {
+
     PreparedStatement ps;
     ResultSet rs;
     Conexion oConexion;
@@ -60,7 +62,7 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
             ps.setString(5, dtoEmpleado.getCelular());
             ps.setString(6, dtoEmpleado.getCodEmpleado());
             respuesta = ps.executeUpdate();
-            return  respuesta == 1;
+            return respuesta == 1;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return false;
@@ -72,18 +74,16 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
     @Override
     public boolean eliminar(EmpleadoDTO dtoEmpleado) {
         int r = 0;
-        
+
         try {
             ps = oConexion.conectar().prepareStatement(DELETE);
             ps.setString(1, dtoEmpleado.getCodEmpleado());
             r = ps.executeUpdate();
             return r == 1;
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return false;
-        }
-        finally {
+        } finally {
             oConexion.desconectar();
         }
     }
@@ -91,12 +91,12 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
     @Override
     public EmpleadoDTO buscar(EmpleadoDTO dtoEmpleado) {
         boolean encontrado = false;
-        
+
         try {
             ps = oConexion.conectar().prepareStatement(SELECT_ONE);
             ps.setString(1, dtoEmpleado.getCodEmpleado());
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 dtoEmpleado.setCodEmpleado(rs.getString(1));
                 dtoEmpleado.setDNIEmpleado(rs.getString(2));
                 dtoEmpleado.setNombres(rs.getString(3));
@@ -107,16 +107,13 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
             }
             if (encontrado) {
                 return dtoEmpleado;
-            }
-            else {
+            } else {
                 return null;
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;
-        }
-        finally {
+        } finally {
             oConexion.desconectar();
         }
     }
@@ -127,7 +124,7 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
         try {
             ps = oConexion.conectar().prepareStatement(SELECT_ALL);
             rs = ps.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 EmpleadoDTO dtoEmpleado = new EmpleadoDTO();
                 dtoEmpleado.setCodEmpleado(rs.getString(1));
                 dtoEmpleado.setDNIEmpleado(rs.getString(2));
@@ -135,7 +132,7 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
                 dtoEmpleado.setApellidoPaterno(rs.getString(4));
                 dtoEmpleado.setApellidoMaterno(rs.getString(5));
                 dtoEmpleado.setCelular(rs.getString(6));
-                
+
                 lista.add(dtoEmpleado);
             }
         } catch (SQLException e) {
@@ -147,13 +144,12 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
         return lista;
     }
 
-    
     public boolean buscarDNI(String dni) {
         try {
             ps = oConexion.conectar().prepareStatement("SELECT COUNT(*) FROM Empleado WHERE DNIEmpleado = ?");
             ps.setString(1, dni);
             rs = ps.executeQuery();
-             if (rs.next()) {
+            if (rs.next()) {
                 int cantidad = rs.getInt(1); // Obtener el valor de la primera columna (COUNT)
                 if (cantidad == 0) {
                     return false;
@@ -161,7 +157,7 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
                     return true;
                 }
             }
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println(ex.getMessage());
@@ -171,13 +167,13 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
         }
         return false;
     }
-    
+
     public boolean buscarCodigo(String codigo) {
         try {
             ps = oConexion.conectar().prepareStatement("SELECT COUNT(*) FROM Empleado WHERE CodEmpleado = ?");
             ps.setString(1, codigo);
             rs = ps.executeQuery();
-             if (rs.next()) {
+            if (rs.next()) {
                 int cantidad = rs.getInt(1); // Obtener el valor de la primera columna (COUNT)
                 if (cantidad == 0) {
                     return false;
@@ -185,7 +181,7 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
                     return true;
                 }
             }
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println(ex.getMessage());
@@ -195,7 +191,7 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
         }
         return false;
     }
-    
+
     public boolean actualizarCelular(EmpleadoDTO dtoEmpleado) {
         int respuesta = 0;
         try {
@@ -203,10 +199,51 @@ public class EmpleadoDAO implements ICrud<EmpleadoDTO>{
             ps.setString(1, dtoEmpleado.getCelular());
             ps.setString(2, dtoEmpleado.getCodEmpleado());
             respuesta = ps.executeUpdate();
-            return  respuesta == 1;
+            return respuesta == 1;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return false;
+        } finally {
+            oConexion.desconectar();
+        }
+    }
+
+    public RatioVendedorDTO calcularRatio(String codigo, String fechaInicio, String fechaFin) {
+        boolean encontrado = false;
+        RatioVendedorDTO dtoRatio = new RatioVendedorDTO();
+        String CONSULTA_RATIO = "SELECT \n"
+                + "    e.CodEmpleado,\n"
+                + "    e.NombreEmpleado + ' ' + e.ApellidoPaternoEmpleado + ' ' + e.ApellidoMaternoEmpleado AS DatosVendedor,\n"
+                + "    COUNT(DISTINCT v.CodVisita) AS TotalVisitas,\n"
+                + "    COUNT(DISTINCT CASE WHEN p.CodPedido IS NOT NULL THEN v.CodVisita END) AS VentasRealizadas\n"
+                + "FROM Visita v\n"
+                + "INNER JOIN EMPLEADO e ON v.CodEmpleado = e.CodEmpleado\n"
+                + "INNER JOIN CLIENTE c ON v.CodCliente = c.CodCliente\n"
+                + "LEFT JOIN Pedido p ON v.CodVisita = p.CodVisita\n"
+                + "\n"
+                + "WHERE e.CodEmpleado = ? AND v.FechaVisita BETWEEN ?  AND ?\n"
+                + "GROUP BY e.CodEmpleado, e.NombreEmpleado, e.ApellidoPaternoEmpleado, e.ApellidoMaternoEmpleado;";
+        try {
+            ps = oConexion.conectar().prepareStatement(CONSULTA_RATIO);
+            ps.setString(1, codigo);
+            ps.setString(2, fechaInicio);
+            ps.setString(3, fechaFin);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                dtoRatio.setCodEmpleado(rs.getString(1));
+                dtoRatio.setVendedor(rs.getString(2));
+                dtoRatio.setTotalVisitas(rs.getString(3));
+                dtoRatio.setVentasRealizadas(rs.getString(4));
+                encontrado = true;
+            }
+            if (encontrado) {
+                return dtoRatio;
+            } else {
+                return null;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
         } finally {
             oConexion.desconectar();
         }

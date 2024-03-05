@@ -4,9 +4,12 @@
  */
 package Presentacion;
 
+import Reportes.plReporteCategorias;
 import Reportes.plReporteVisitas;
 import Reportes.plReporteClientes;
+import Reportes.plReporteRatioEfectividad;
 import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,6 +22,15 @@ public class plReportes extends javax.swing.JPanel {
      */
     public plReportes() {
         initComponents();
+    }
+    
+    private void mostrarPanel(JPanel jPanel) {
+        jPanel.setSize(1024, 653);
+        jPanel.setLocation(0,0);
+        plContenedorReportes.removeAll();
+        plContenedorReportes.add(jPanel, BorderLayout.CENTER);
+        plContenedorReportes.revalidate();
+        plContenedorReportes.repaint();
     }
 
     /**
@@ -35,6 +47,7 @@ public class plReportes extends javax.swing.JPanel {
         btnReportesProductos = new javax.swing.JButton();
         btnReportesVisitas = new javax.swing.JButton();
         btnReportesVentas1 = new javax.swing.JButton();
+        btnReportesCategorias = new javax.swing.JButton();
         plContenedorReportes = new javax.swing.JPanel();
 
         btnReportesClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -57,7 +70,20 @@ public class plReportes extends javax.swing.JPanel {
         });
 
         btnReportesVentas1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnReportesVentas1.setText("VENTAS");
+        btnReportesVentas1.setText("RATIO EFECTIVIDAD");
+        btnReportesVentas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportesVentas1ActionPerformed(evt);
+            }
+        });
+
+        btnReportesCategorias.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnReportesCategorias.setText("CATEGORIAS");
+        btnReportesCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportesCategoriasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,8 +96,10 @@ public class plReportes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReportesVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReportesVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 494, Short.MAX_VALUE))
+                .addComponent(btnReportesVentas1)
+                .addGap(7, 7, 7)
+                .addComponent(btnReportesCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 326, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,7 +107,8 @@ public class plReportes extends javax.swing.JPanel {
                 .addComponent(btnReportesClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnReportesProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnReportesVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnReportesVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnReportesVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReportesCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout plContenedorReportesLayout = new javax.swing.GroupLayout(plContenedorReportes);
@@ -98,14 +127,15 @@ public class plReportes extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(plContenedorReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(plContenedorReportes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(plContenedorReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(plContenedorReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -131,8 +161,19 @@ public class plReportes extends javax.swing.JPanel {
         plContenedorReportes.repaint();
     }//GEN-LAST:event_btnReportesVisitasActionPerformed
 
+    private void btnReportesCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesCategoriasActionPerformed
+        plReporteCategorias plreportescategorias = new plReporteCategorias();
+        mostrarPanel(plreportescategorias);
+    }//GEN-LAST:event_btnReportesCategoriasActionPerformed
+
+    private void btnReportesVentas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesVentas1ActionPerformed
+       plReporteRatioEfectividad  panelRatioEfectividad = new plReporteRatioEfectividad();
+        mostrarPanel(panelRatioEfectividad);
+    }//GEN-LAST:event_btnReportesVentas1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnReportesCategorias;
     private javax.swing.JButton btnReportesClientes;
     private javax.swing.JButton btnReportesProductos;
     private javax.swing.JButton btnReportesVentas1;
