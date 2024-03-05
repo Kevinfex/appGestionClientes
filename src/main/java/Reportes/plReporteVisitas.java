@@ -6,11 +6,14 @@ package Reportes;
 
 import BusinessObject.Cliente;
 import BusinessObject.Visita;
+import BusinessObject.VisitaPedido;
 import Reportes.Designs.VisitaPDF;
+import Reportes.Designs.VisitaPedidoPDF;
 import static Reportes.plReporteTablaVisita.tbReporteVisitas;
 import Reportes.plReporteVisitas.BotonRenderer;
 import TransferObject.ClienteDTO;
 import TransferObject.VisitaDTO;
+import TransferObject.VisitaPedidoDTO;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -19,8 +22,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -37,6 +43,17 @@ public class plReporteVisitas extends javax.swing.JPanel {
     VisitaDTO visitaDTO;
     String personajuridica;
     Visita visita;
+    String codvisita;
+    String empleado;
+    String cliente;
+    String fecha;
+    String venta;
+    VisitaPedidoDTO visitaPedidoDTO;
+    VisitaPedido visitaPedido;
+    
+    public static JPanel panel;
+    public static JButton btnVer;
+    public static List<VisitaPedidoDTO> listaVisitasPedidos;
 
     /**
      * Creates new form plReporteClientes
@@ -46,7 +63,8 @@ public class plReporteVisitas extends javax.swing.JPanel {
         modelo = new DefaultTableModel();
         visitaDTO = new VisitaDTO();
         visita = new Visita();
-
+        visitaPedidoDTO = new VisitaPedidoDTO();
+        visitaPedido = new VisitaPedido();
     }
 
     public void cargarVisitas() {
@@ -54,8 +72,9 @@ public class plReporteVisitas extends javax.swing.JPanel {
         try {
             
             plReporteTablaVisita.tbReporteVisitas.setDefaultRenderer(Object.class, new BotonRenderer());
-            JButton btnVer = new JButton("VER");
+            btnVer = new JButton("VER");
             btnVer.setName("Ver");
+            
             
             
             modelo = (DefaultTableModel) plReporteTablaVisita.tbReporteVisitas.getModel();
@@ -74,8 +93,13 @@ public class plReporteVisitas extends javax.swing.JPanel {
                 //plReporteTablaVisita.tbReporteVisitas.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
                 modelo.addRow(ob);
             }
+            String obtener = ob[5].toString();
             
-            plReporteTablaVisita.tbReporteVisitas.setModel(modelo);
+            
+            
+            //panel = new JPanel();
+        
+            //panel.add(new JButton("Button in the center"));
             
             //plReporteTablaVisita.tbReporteVisitas.getColumn("VER").setCellRenderer(new ButtonRenderer());
 
@@ -90,9 +114,12 @@ public class plReporteVisitas extends javax.swing.JPanel {
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
             if (value instanceof JButton) {
                 JButton btn = (JButton)value;
+                
                 return btn;
             }
+            //tbReporteVisitas.clearSelection();
             return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            
         }
     }
 
@@ -123,6 +150,7 @@ public class plReporteVisitas extends javax.swing.JPanel {
         rbtnVisitas = new javax.swing.JRadioButton();
         btnMostrar = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
+        btnVerDetalle = new javax.swing.JButton();
         plContenedorReporteVisita = new javax.swing.JPanel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(137, 176, 212), 2, true)));
@@ -170,6 +198,14 @@ public class plReporteVisitas extends javax.swing.JPanel {
             }
         });
 
+        btnVerDetalle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVerDetalle.setText("VER DETALLE");
+        btnVerDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerDetalleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -181,7 +217,9 @@ public class plReporteVisitas extends javax.swing.JPanel {
                 .addComponent(btnMostrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnImprimir)
-                .addContainerGap(637, Short.MAX_VALUE))
+                .addGap(165, 165, 165)
+                .addComponent(btnVerDetalle)
+                .addContainerGap(357, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +232,8 @@ public class plReporteVisitas extends javax.swing.JPanel {
                         .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVerDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -251,12 +290,31 @@ public class plReporteVisitas extends javax.swing.JPanel {
         // TODO add your handling code here:
         VisitaPDF pdf = new VisitaPDF();
         pdf.generarBoletaPDF();
+        
     }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnVerDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalleActionPerformed
+        // TODO add your handling code here:
+        
+        
+            
+            
+            
+        
+        
+        
+        /*for (int i=0; i <= tbReporteVisitas.getRowCount()-1; i++) {
+            codvisita = (tbReporteVisitas.getValueAt(i, 0).toString());
+            listaVisitasPedidos = visitaPedido.buscarVisitaPedido(Integer.parseInt(codvisita));
+        }*/
+        
+    }//GEN-LAST:event_btnVerDetalleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnVerDetalle;
     private javax.swing.ButtonGroup btngTipoCliente;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

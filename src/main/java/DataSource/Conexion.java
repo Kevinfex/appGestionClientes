@@ -15,7 +15,7 @@ public class Conexion {
     Connection conexion;
     private final String DATABASE = "appGestionClientes";
     private final String USER = "sa";
-    private final String PASSWORD = "123";
+    private final String PASSWORD = "1234";
     private final String URL = "jdbc:sqlserver://localhost:1433;"
                                 + "databaseName=" + DATABASE + ";"
                                 + "encrypt=true;trustServerCertificate=true;";

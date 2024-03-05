@@ -60,7 +60,9 @@
                   <Component id="btnMostrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnImprimir" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="637" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                  <Component id="btnVerDetalle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="357" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -77,6 +79,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnMostrar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="btnImprimir" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="btnVerDetalle" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -158,6 +161,17 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimirActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVerDetalle">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="VER DETALLE"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerDetalleActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
