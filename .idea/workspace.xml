@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c9502acd-bb76-419e-8abb-33919f8339cc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/BusinessObject/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BusinessObject/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataAccessObject/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataAccessObject/ClienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Presentacion/VentaProductos.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Presentacion/VentaProductos.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Presentacion/VentaProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Presentacion/VentaProductos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BusinessObject/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BusinessObject/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataAccessObject/ClienteDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataAccessObject/ClienteDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataSource/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataSource/Conexion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/frameAdministrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/frameAdministrador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/frameLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/frameLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/frameVendedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/frameVendedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/panelFormularioEmpleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/panelFormularioEmpleado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plBoleta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plBoleta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plCategoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plCategoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plEmpleados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plEmpleados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plPerfil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plPerfil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plProductos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plProductos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteClientes$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteClientes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteTablaCliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteTablaVisita$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteTablaVisita$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteTablaVisita.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteVisitas$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteVisitas$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteVisitas$BotonRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReporteVisitas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReportes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plReportes$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReportes$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plReportes$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plReportes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plReportes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plUsuarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plUsuarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Presentacion/plVenta1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Presentacion/plVenta1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2dHJc4orwZCVV4TVOJxCzA30bNk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Francois/UTP/2024/1. Ciclo Verano/Algoritmos y estructuras de datos/Proyecto Final/appGestionClientes"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9502acd-bb76-419e-8abb-33919f8339cc" name="Changes" comment="" />
+      <created>1709659147355</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709659147355</updated>
+    </task>
+    <servers />
+  </component>
+</project>

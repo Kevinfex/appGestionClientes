@@ -378,7 +378,7 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
         
         List<ClienteDTO> lista = new ArrayList<>();
         try{
-            ps = conexion.conectar().prepareStatement("SELECT RUCCLIENTE FROM CLIENTE");
+            ps = conexion.conectar().prepareStatement("SELECT RAZONSOCIAL FROM CLIENTE");
             rs = ps.executeQuery();
             
             while (rs.next()) {
@@ -394,5 +394,16 @@ public class ClienteDAO implements ICrud<ClienteDTO> {
             conexion.desconectar();
         }
         return lista;
+    }
+    
+    public void mostrarCliente(){
+        try{
+            ps = conexion.conectar().prepareStatement("SELECT NOMBRECOMERCIAL FROM CLIENTE");
+            rs = ps.executeQuery();
+        }catch(SQLException ex){
+            
+        }finally{
+            conexion.desconectar();
+        }
     }
 }

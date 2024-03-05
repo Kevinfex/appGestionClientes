@@ -216,4 +216,8 @@ public class Cliente {
         }
         return null;
     }
+    
+    public void mostrarCliente(){
+        clienteDAO.mostrarCliente();
+    }
 }

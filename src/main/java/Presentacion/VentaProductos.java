@@ -13,14 +13,20 @@ import TransferObject.RolUsuarioDTO;
 import TransferObject.UsuarioDTO;
 import Utilities.DisabledItemRenderer;
 import java.awt.BorderLayout;
+import java.awt.event.ItemEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author Francois
  */
 public class VentaProductos extends javax.swing.JPanel {
@@ -69,8 +75,16 @@ public class VentaProductos extends javax.swing.JPanel {
     /**
      * Creates new form VentaProductos
      */
+    public static DefaultTableModel modelo2;
+    
     public VentaProductos() {
         initComponents();
+        modelo2 = new DefaultTableModel();
+        modelo2.addColumn("Cant.");
+        modelo2.addColumn("Descripción");
+        modelo2.addColumn("P. Unit.");
+        modelo2.addColumn("Importe");
+        tbBoleta.setModel(modelo2);
     }
 
     /**
@@ -102,9 +116,9 @@ public class VentaProductos extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         lblNumPedido = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtDireccionCliente = new javax.swing.JLabel();
+        lblDireccionCliente = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtRUC = new javax.swing.JLabel();
+        lblRUC = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbBoleta = new javax.swing.JTable();
         btnGenerarBoleta = new javax.swing.JButton();
@@ -112,7 +126,6 @@ public class VentaProductos extends javax.swing.JPanel {
         txtImporteTotal = new javax.swing.JTextField();
         btnNuevaBoleta = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        btnCerrarBoleta = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(700, 1024));
         setRequestFocusEnabled(false);
@@ -122,6 +135,11 @@ public class VentaProductos extends javax.swing.JPanel {
 
         jLabel1.setText("Cliente: ");
 
+        cbClientes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbClientesItemStateChanged(evt);
+            }
+        });
         cbClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbClientesActionPerformed(evt);
@@ -199,14 +217,10 @@ public class VentaProductos extends javax.swing.JPanel {
             }
         });
         jDatos.add(btnSeleccionarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 233, -1, -1));
-
-        lblCliente.setText("txtCliente");
         jDatos.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 163, -1, -1));
 
         jLabel5.setText("Fecha:");
         jDatos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
-
-        lblFecha.setText("txtFecha");
         jDatos.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -226,19 +240,16 @@ public class VentaProductos extends javax.swing.JPanel {
 
         lblNumPedido.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jPanel2.add(lblNumPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
-        lblNumPedido.getAccessibleContext().setAccessibleName("");
 
         jDatos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 226, 109));
 
         jLabel10.setText("Dirección:");
         jDatos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 195, -1, -1));
-
-        txtDireccionCliente.setText("txtDireccionCliente");
-        jDatos.add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 195, -1, -1));
+        jDatos.add(lblDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 195, -1, -1));
 
         jLabel11.setText("RUC:");
         jDatos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
-        jDatos.add(txtRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
+        jDatos.add(lblRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
 
         tbBoleta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -291,16 +302,6 @@ public class VentaProductos extends javax.swing.JPanel {
         );
 
         add(jBoleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 660, 620));
-
-        btnCerrarBoleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir.png"))); // NOI18N
-        btnCerrarBoleta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCerrarBoleta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCerrarBoleta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarBoletaActionPerformed(evt);
-            }
-        });
-        add(btnCerrarBoleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteActionPerformed
@@ -328,16 +329,30 @@ public class VentaProductos extends javax.swing.JPanel {
         if(cbClientes.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(null, "Seleccionar cliente");
         }
+        
+        String selectedItem1 = (String) cbClientes.getSelectedItem();
+        if (!selectedItem1.equals("--Seleccionar--") && !chkVenta.isSelected()) {
+            JOptionPane.showMessageDialog(null, "Se registró la visita exitosamente");
+            cbClientes.setSelectedItem("--Seleccionar--");
+        }
     }//GEN-LAST:event_btnProcesarActionPerformed
 
     private void btnSeleccionarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProductoActionPerformed
         // TODO add your handling code here:
+        // Crear una instancia del formulario listaProductos
+        listaProductos listaProductosForm = new listaProductos();
+        // Crear un JDialog y establecer listaProductosForm como su contenido
+        JDialog dialog = new JDialog();
+        dialog.setContentPane(listaProductosForm);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null); // Centrar en la pantalla
+        dialog.setModal(true); // Hacer que el diálogo sea modal para bloquear la interacción con otros formularios
+        // Hacer visible el JDialog
+        dialog.setVisible(true);
+        
+        listaProductosForm.setSize(750, 560);
+        listaProductosForm.setLocation(0, 0);
     }//GEN-LAST:event_btnSeleccionarProductoActionPerformed
-
-    private void btnCerrarBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarBoletaActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-    }//GEN-LAST:event_btnCerrarBoletaActionPerformed
 
     private void chkVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVentaActionPerformed
         // TODO add your handling code here:
@@ -345,17 +360,162 @@ public class VentaProductos extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Seleccionar cliente");
             chkVenta.setSelected(false);
             
-        } else if(cbClientes.getSelectedIndex() > 0 && chkVenta.isSelected()) {   
+        }
+        //else if(cbClientes.getSelectedIndex() > 0 && chkVenta.isSelected()) {   
+        //    jBoleta.setVisible(true);
+        //} else if(cbClientes.getSelectedIndex() > 0 && chkVenta.isSelected()){
+        //    chkVenta.setSelected(false);
+        //    jBoleta.setVisible(false);   
+        //}
+        
+        
+        //PRUEBA COPILOT
+        String selectedItem = (String) cbClientes.getSelectedItem();
+        if (chkVenta.isSelected() && !selectedItem.equals("--Seleccionar--")) {
             jBoleta.setVisible(true);
-        } else if(cbClientes.getSelectedIndex() > 0 && chkVenta.isSelected()){
-            chkVenta.setSelected(false);
-            jBoleta.setVisible(false);   
+            btnProcesar.setEnabled(false);
+        } else {
+            jBoleta.setVisible(false);
+            btnProcesar.setEnabled(true);
         }
     }//GEN-LAST:event_chkVentaActionPerformed
 
+    private void cbClientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbClientesItemStateChanged
+        // TODO add your handling code here:
+        
+        //Agregado desde COPILOT
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            String selectedItem = (String) cbClientes.getSelectedItem();
+            if (!selectedItem.equals("--Seleccionar--") && chkVenta.isSelected()) {
+                jBoleta.setVisible(true);
+                btnProcesar.setEnabled(false);
+            } else {
+                jBoleta.setVisible(false);
+                btnProcesar.setEnabled(true);
+            }
+        }
+        
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            String selectedItem = (String) cbClientes.getSelectedItem();
+            if (!selectedItem.equals("--Seleccionar--") && chkVenta.isSelected()) {
+                chkVenta.setSelected(false);
+                jBoleta.setVisible(false);
+                btnProcesar.setEnabled(true);
+            }
+        }
+        
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            String selectedItem = (String) cbClientes.getSelectedItem();
+            if (!selectedItem.equals("--Seleccionar--")) {
+                //chkVenta.setSelected(true);
+                //jBoleta.setVisible(true);
+                // Generar un número aleatorio de 7 dígitos
+                int numPedido = (int) ((Math.random() * (9999999 - 1000000)) + 1000000);
+                String conCeros = String.format("0000%d", numPedido);
+                // Mostrar el número aleatorio en txtRUC
+                
+                lblNumPedido.setText(String.valueOf(conCeros));
+            }
+        }
+        
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            String selectedItem = (String) cbClientes.getSelectedItem();
+            if (!selectedItem.equals("--Seleccionar--")) {
+                
+                
+                try {
+                    // Establecer la conexión a la base de datos
+                    Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=appGestionClientes;encrypt=true;trustServerCertificate=true;", "sa", "123");
+
+                    // Crear un Statement para ejecutar la consulta SQL
+                    Statement stmt = con.createStatement();
+
+                    // Ejecutar la consulta SQL y obtener los resultados
+                    ResultSet rs = stmt.executeQuery("SELECT NOMBRECOMERCIAL FROM CLIENTE WHERE RAZONSOCIAL = '" + selectedItem + "'");
+                    //ResultSet rs1 = stmt.executeQuery("SELECT DIRECCIONFISCAL FROM CLIENTE WHERE RAZONSOCIAL = '" + selectedItem + "'");
+
+                    // Recorrer los resultados
+                    while (rs.next()) {
+                        // Obtener el valor de la columna NOMBRECOMERCIAL
+                        String nombreComercial = rs.getString("NOMBRECOMERCIAL");
+
+                        // Agregar el valor al elemento txtCliente
+                        lblCliente.setText(nombreComercial);
+                    }
+                    
+                    //while (rs1.next()) {
+                    //    // Obtener el valor de la columna NOMBRECOMERCIAL
+                    //    String direccionComercial = rs.getString("DIRECCIONFISCAL");
+
+                        // Agregar el valor al elemento txtCliente
+                    //    lblDireccionCliente.setText(direccionComercial);
+                   // }
+
+                    // Cerrar la conexión a la base de datos
+                    con.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                
+                //Direccion Fiscal
+                try {
+                    // Establecer la conexión a la base de datos
+                    Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=appGestionClientes;encrypt=true;trustServerCertificate=true;", "sa", "123");
+
+                    // Crear un Statement para ejecutar la consulta SQL
+                    Statement stmt = con.createStatement();
+
+                    // Ejecutar la consulta SQL y obtener los resultados
+                    //ResultSet rs = stmt.executeQuery("SELECT NOMBRECOMERCIAL FROM CLIENTE WHERE RAZONSOCIAL = '" + selectedItem + "'");
+                    ResultSet rs = stmt.executeQuery("SELECT DIRECCIONFISCAL FROM CLIENTE WHERE RAZONSOCIAL = '" + selectedItem + "'");
+
+                    // Recorrer los resultados                 
+                    while (rs.next()) {
+                        // Obtener el valor de la columna NOMBRECOMERCIAL
+                        String direccionComercial = rs.getString("DIRECCIONFISCAL");
+
+                        // Agregar el valor al elemento txtCliente
+                        lblDireccionCliente.setText(direccionComercial);
+                    }
+
+                    // Cerrar la conexión a la base de datos
+                    con.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                
+                //RUC del cliente
+                try {
+                    // Establecer la conexión a la base de datos
+                    Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=appGestionClientes;encrypt=true;trustServerCertificate=true;", "sa", "123");
+
+                    // Crear un Statement para ejecutar la consulta SQL
+                    Statement stmt = con.createStatement();
+
+                    // Ejecutar la consulta SQL y obtener los resultados
+                    //ResultSet rs = stmt.executeQuery("SELECT NOMBRECOMERCIAL FROM CLIENTE WHERE RAZONSOCIAL = '" + selectedItem + "'");
+                    ResultSet rs = stmt.executeQuery("SELECT RUCCLIENTE FROM CLIENTE WHERE RAZONSOCIAL = '" + selectedItem + "'");
+
+                    // Recorrer los resultados                 
+                    while (rs.next()) {
+                        // Obtener el valor de la columna NOMBRECOMERCIAL
+                        String ruc = rs.getString("RUCCLIENTE");
+
+                        // Agregar el valor al elemento txtCliente
+                        lblRUC.setText(ruc);
+                    }
+
+                    // Cerrar la conexión a la base de datos
+                    con.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }//GEN-LAST:event_cbClientesItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrarBoleta;
     private javax.swing.JButton btnGenerarBoleta;
     private javax.swing.JButton btnNuevaBoleta;
     private javax.swing.JButton btnNuevoCliente;
@@ -380,11 +540,11 @@ public class VentaProductos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCliente;
+    private javax.swing.JLabel lblDireccionCliente;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblNumPedido;
+    private javax.swing.JLabel lblRUC;
     private javax.swing.JTable tbBoleta;
-    private javax.swing.JLabel txtDireccionCliente;
     private javax.swing.JTextField txtImporteTotal;
-    private javax.swing.JLabel txtRUC;
     // End of variables declaration//GEN-END:variables
 }
